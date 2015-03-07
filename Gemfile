@@ -5,6 +5,8 @@ gem 'sinatra-contrib'
 gem 'thin'
 gem 'rake'
 
+gem 'capybara'
+
 group :development do
   gem 'rerun'
 end
