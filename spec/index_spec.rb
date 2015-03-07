@@ -1,7 +1,7 @@
 require 'spec_helper'
-require 'index/show'
+require 'routes'
 
-RSpec.describe LightBlog::Index::Show, :type => :feature do
+RSpec.describe "index", :type => :feature do
   it 'matches on some CSS' do
     visit '/'
     expect(page).to have_css '#viewport .post'

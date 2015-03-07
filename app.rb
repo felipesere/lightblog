@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'sinatra/content_for'
-require './lib/index/show'
+require './lib/routes'
 
 module LightBlog
   class App < Sinatra::Application
@@ -12,6 +12,6 @@ module LightBlog
       set :erb, escape_html: true
     end
 
-    use Index::Show
+    use LightBlog::Routes
   end
 end
