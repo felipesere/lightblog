@@ -6,7 +6,8 @@ module LightBlog
     end
 
     get '/:slug' do
-      post = Posts.find_by_slug(params[:slug])
+      slug = params.fetch("slug")
+      post = Posts.find_by_slug(slug)
       erb :post, locals: defaults.merge(post: post,
                                         title: post.title,
                                         subtitle: post.subtitle)
