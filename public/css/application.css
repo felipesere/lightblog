@@ -1,0 +1,25 @@
+.posts {
+  margin: 0 auto;
+  max-width: 48rem;
+  width: 90%;
+}
+
+#title {
+  text-align: center;
+}
+
+#subtitle {
+  text-align: center;
+}
+
+hr.small {
+  max-width: 80px;
+  margin: 15px auto;
+  border-width: 4px;
+  border-color: white;
+}
+
+.post .metadata {
+  font-style: italic;
+  color: #808080;
+}

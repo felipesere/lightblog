@@ -39,5 +39,4 @@ RSpec.describe "index", :type => :feature do
       expect(post.find('.metadata').text).to eq "Posted by Felipe Sere on October 23, 2014"
     end
   end
-
 end
