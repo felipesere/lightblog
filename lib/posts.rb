@@ -7,6 +7,10 @@ module LightBlog
     def self.all
       [@new_post]
     end
+
+    def self.find_by_slug(slug)
+      @new_post
+    end
   end
 
   class Post
