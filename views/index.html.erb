@@ -1,2 +1,6 @@
-
+<% content_for :body do %>
+  <div class="posts">
+    <%= erb :post, :locals => {post: post} %>
+  </div>
+<% end %>
 
