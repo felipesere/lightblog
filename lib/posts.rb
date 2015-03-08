@@ -1,15 +1,20 @@
 module LightBlog
   class Posts
     def self.create(params)
-      @new_post = Post.new(params)
+      @posts ||= []
+      @posts << Post.new(params)
     end
 
     def self.all
-      [@new_post]
+      @posts
     end
 
     def self.find_by_slug(slug)
-      @new_post
+      @posts.first
+    end
+
+    def self.clear
+      @posts = []
     end
   end
 

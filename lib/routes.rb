@@ -1,17 +1,20 @@
 module LightBlog
   class Routes < Sinatra::Application
     get '/' do
-      post = Posts.all.first
-      erb :index, locals: defaults.merge( post: post )
+      posts = Posts.all
+      erb :index, locals: defaults.merge( posts: posts )
     end
 
     get '/:slug' do
       post = Posts.find_by_slug(params[:slug])
-      erb :post, locals: defaults.merge(post: post, title: post.title)
+      erb :post, locals: defaults.merge(post: post,
+                                        title: post.title,
+                                        subtitle: post.subtitle)
     end
 
     def defaults
-      { title: 'Code Paradoxon' }
+      { title: 'Code Paradoxon',
+        subtitle: 'Musings on Code'}
     end
   end
 end

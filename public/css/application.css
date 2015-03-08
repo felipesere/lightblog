@@ -19,6 +19,13 @@ hr.small {
   border-color: white;
 }
 
+hr.divider {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
 .post .metadata {
   font-style: italic;
   color: #808080;

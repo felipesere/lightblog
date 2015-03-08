@@ -1,8 +1,8 @@
 <% content_for :body do %>
-  <%= erb :title %>
-
   <div class="posts">
-    <%= erb :post_snippet, :locals => {post: post} %>
+    <% posts.each do |post| %>
+      <%= erb :post_snippet, :locals => {post: post} %>
+    <% end %>
   </div>
 <% end %>
 

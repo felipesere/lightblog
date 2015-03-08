@@ -4,11 +4,8 @@ require 'posts'
 
 RSpec.describe "index", :type => :feature do
   before do
-    LightBlog::Posts.create(title: 'Ripples in Abstraction',
-                   subtitle: 'When things go gently wrong',
-                   author: 'Felipe Sere',
-                   date: 'October 23, 2014',
-                   slug: 'ripples-in-abstraction');
+    clear
+    create_post
     visit '/'
   end
 
@@ -44,5 +41,33 @@ RSpec.describe "index", :type => :feature do
     it 'has a metadata tagline' do
       expect(post.find('.metadata').text).to eq "Posted by Felipe Sere on October 23, 2014"
     end
+  end
+
+  describe 'multiple posts' do
+    before do
+      clear
+      create_post title: "Foo"
+      create_post title: "Bar"
+      create_post title: "Batz"
+
+      visit '/'
+    end
+
+    it 'has three posts' do
+      expect(page).to have_selector('.post', count: 3)
+    end
+
+  end
+
+  def create_post(params={})
+    LightBlog::Posts.create(title: 'Ripples in Abstraction',
+                   subtitle: 'When things go gently wrong',
+                   author: 'Felipe Sere',
+                   date: 'October 23, 2014',
+                   slug: 'ripples-in-abstraction');
+  end
+
+  def clear
+    LightBlog::Posts.clear
   end
 end
