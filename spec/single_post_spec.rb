@@ -31,7 +31,7 @@ RSpec.describe 'single post', :type => :feature do
                    subtitle: 'When things go gently wrong',
                    author: 'Felipe Sere',
                    date: 'October 23, 2014',
-                   slug: 'ripples-in-abstraction');
+                   slug: 'ripples-in-abstraction')
   end
 
   def clear
