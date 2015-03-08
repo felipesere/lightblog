@@ -1,9 +1,17 @@
 <html>
   <head>
-    <%= yield_content :header %>
+    <title>Code Paradoxon</title>
+    <link rel="stylesheet"  href="/css/normalize.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <%= yield_content :body %>
+  <h1 id="title"> Code Paradoxon </h1>
+  <span id="subtitle"> Musings on Code </span>
+
+  <div class="posts">
+    <%= erb :post %>
+  </div>
+
   </body>
 </html>
 

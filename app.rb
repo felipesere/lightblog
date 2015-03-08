@@ -9,7 +9,11 @@ module LightBlog
 
     configure do
       disable :method_override
-      set :erb, escape_html: true
+      set :erb, :escape_html => true,
+                :static => true,
+                :public_folder => 'public'
+
+      set :partial_template_engine, :erb
     end
 
     use LightBlog::Routes
