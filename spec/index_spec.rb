@@ -1,8 +1,14 @@
 require 'spec_helper'
 require 'routes'
+require 'posts'
 
 RSpec.describe "index", :type => :feature do
   before do
+    LightBlog::Posts.create(title: 'Ripples in Abstraction',
+                   subtitle: 'When things go gently wrong',
+                   author: 'Felipe Sere',
+                   date: 'October 23, 2014',
+                   slug: 'ripples-in-abstraction');
     visit '/'
   end
 

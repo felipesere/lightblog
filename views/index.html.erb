@@ -1,6 +1,8 @@
 <% content_for :body do %>
+  <%= erb :title %>
+
   <div class="posts">
-    <%= erb :post, :locals => {post: post} %>
+    <%= erb :post_snippet, :locals => {post: post} %>
   </div>
 <% end %>
 

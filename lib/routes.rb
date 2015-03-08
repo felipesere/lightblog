@@ -1,22 +1,17 @@
 module LightBlog
   class Routes < Sinatra::Application
     get '/' do
-      post = Post.new(title: 'Ripples in Abstraction',
-                   subtitle: 'When things go gently wrong',
-                   author: 'Felipe Sere',
-                   date: 'October 23, 2014')
-      erb :index, layout: true, locals: { post: post }
-    end
-  end
-
-  class Post
-    def initialize(params)
-      @title = params[:title]
-      @subtitle = params[:subtitle]
-      @author = params[:author]
-      @date = params[:date]
+      post = Posts.all.first
+      erb :index, locals: defaults.merge( post: post )
     end
 
-    attr_reader :title, :subtitle, :author, :date
+    get '/:slug' do
+      post = Posts.all.first
+      erb :post, locals: defaults.merge(post: post, title: post.title)
+    end
+
+    def defaults
+      { title: 'Code Paradoxon' }
+    end
   end
 end
