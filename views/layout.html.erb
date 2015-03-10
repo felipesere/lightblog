@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
+    <div id="navbar">
+      <a href="/" class="home">Code Paradoxon</a>
+    </div>
     <%= erb :title, locals: { title: title, subtitle: subtitle } %>
+
     <%= yield_content :body %>
   </body>
 </html>
