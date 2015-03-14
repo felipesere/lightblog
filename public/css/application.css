@@ -26,6 +26,10 @@ hr.divider {
   border-top: 1px solid #eee;
 }
 
+.post {
+  text-align: center;
+}
+
 .post .metadata {
   font-style: italic;
   color: #808080;
