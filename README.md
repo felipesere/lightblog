@@ -11,10 +11,11 @@ Here are the features I want:
 * No admin UI. Any config necessary should be in text
 * Individual header image if needed
 * provide a proper 404 page
+* Deal with images
 
 * On the text:
-** Markdown and syntax hightlighting
-** Have a way to merge lines that form a paragraph. Its annoying in MD
-** Have a way to highlight qutoes
+  * Markdown and syntax hightlighting
+  * Have a way to merge lines that form a paragraph. Its annoying in MD
+  * Have a way to highlight qutoes
 
 
