@@ -6,7 +6,12 @@ Here are the features I want:
 * Separate "published" from "staged" posts.
 * "Staged" posts should only be reachable behind auth
 * Password protect individual posts
-* Have a way to merge lines that form a paragraph. Its annoying in MD
 * No admin UI. Any config necessary should be in text
-* Markdown and syntax hightlighting
+* Individual header image if needed
+
+* On the text:
+** Markdown and syntax hightlighting
+** Have a way to merge lines that form a paragraph. Its annoying in MD
+** Have a way to highlight qutoes
+
 
