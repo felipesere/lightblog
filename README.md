@@ -1,6 +1,6 @@
 # A tiny blog written in Sinatra
 
-You can see the progress [here](https://obscure-reef-2940.herokuapp.com/)
+You can see the progress [here](https://lightblog.herokuapp.com/)
 
 Here are the features I want:
 * Clean, simple, design. Declutterd
