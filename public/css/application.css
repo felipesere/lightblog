@@ -1,3 +1,16 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font: 100%/1.5 "Open Sans", sans-serif;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
 .posts {
   margin: 0 auto;
   max-width: 48rem;
@@ -27,10 +40,44 @@ hr.divider {
 }
 
 .post {
+  margin: 0 auto;
+  max-width: 48rem;
   text-align: center;
 }
 
 .post .metadata {
   font-style: italic;
   color: #808080;
+}
+
+.post-content {
+  width: 90%;
+  margin: auto;
+}
+
+@media (min-width: 40rem) {
+  .post-content { width: 70%; }
+}
+
+@media (min-width: 64rem) {
+  .post-content { width: 50%; }
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  color: #333333;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+header {
+  display: block;
+  height: 65%;
+  min-height: 180px;
+  background-size: cover;
 }

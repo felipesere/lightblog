@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <div id="navbar">
-      <a href="/" class="home">Code Paradoxon</a>
-    </div>
+    <header style="background-image: url(/images/index/blog-title-v2.jpg)" >
+      <div id="navbar">
+        <a href="/" class="home">Code Paradoxon</a>
+      </div>
+    </header>
+
     <%= erb :title, locals: { title: title, subtitle: subtitle } %>
 
     <%= yield_content :body %>
