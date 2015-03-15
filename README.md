@@ -12,6 +12,7 @@ Here are the features I want:
 * Individual header image if needed
 * provide a proper 404 page
 * Deal with images
+* Casper-icons as nice font
 
 * On the text:
   * Markdown and syntax hightlighting
