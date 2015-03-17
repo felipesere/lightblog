@@ -18,18 +18,27 @@ html {
 }
 
 #title {
+  font-size: 4em;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
   text-align: center;
+  margin: 0 0 0 0;
 }
 
 #subtitle {
+  font-size: 2em;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
   text-align: center;
+  margin: 0 0 2em 0;
 }
 
-hr.small {
-  max-width: 80px;
-  margin: 15px auto;
-  border-width: 4px;
-  border-color: white;
+.post-title {
+  margin: 0;
+}
+
+.post-subtitle {
+  margin: 0 0 1em 0;
 }
 
 hr.divider {
@@ -42,7 +51,7 @@ hr.divider {
 .post {
   margin: 0 auto;
   max-width: 48rem;
-  text-align: center;
+  text-align: left;
 }
 
 .post .metadata {
@@ -65,6 +74,11 @@ hr.divider {
 
 a {
   text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: #2B59B0;
 }
 
 p {

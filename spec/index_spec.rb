@@ -45,6 +45,10 @@ RSpec.describe "index", :type => :feature do
     it 'has a metadata tagline' do
       expect(post.find('.metadata').text).to eq "Posted by Felipe Sere on October 23, 2014"
     end
+
+    it 'has a exceprt of text' do
+      expect(post).to have_css('.excerpt')
+    end
   end
 
   describe 'multiple posts' do
