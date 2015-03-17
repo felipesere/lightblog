@@ -24,5 +24,17 @@ module LightBlog
                    author: 'Felipe Sere',
                    date: 'October 23, 2014',
                    slug: 'ripples-in-abstraction');
+
+    LightBlog::Posts.create(title: 'The second one',
+                   subtitle: 'Maybe even important',
+                   author: 'Felipe Sere',
+                   date: 'November 23, 2014',
+                   slug: 'the-second-one');
+
+    LightBlog::Posts.create(title: 'Power Ueber Title',
+                   subtitle: 'Yeah right',
+                   author: 'Felipe Sere',
+                   date: 'December 23, 2014',
+                   slug: 'the-third-one');
   end
 end
