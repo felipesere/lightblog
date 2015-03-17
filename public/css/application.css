@@ -35,10 +35,12 @@ html {
 
 .post-title {
   margin: 0;
+  font-family: 'Roboto Slab', serif;
 }
 
 .post-subtitle {
   margin: 0 0 1em 0;
+  font-family: 'Roboto Slab', serif;
 }
 
 hr.divider {
@@ -51,17 +53,36 @@ hr.divider {
 .post {
   margin: 0 auto;
   max-width: 48rem;
-  text-align: left;
 }
 
 .post .metadata {
   font-style: italic;
+  font-size: 10px;
   color: #808080;
+}
+
+.post .excerpt {
+  text-align: justify;
+  font-weight: 300;
+  font-style: normal;
+}
+
+@media (min-width: 40rem) {
+  .post .metadata {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 64) {
+  .post .metadata {
+    font-size: 20px;
+  }
 }
 
 .post-content {
   width: 90%;
   margin: auto;
+  text-align: justify;
 }
 
 @media (min-width: 40rem) {
