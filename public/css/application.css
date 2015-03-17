@@ -19,7 +19,7 @@ html {
 
 #title {
   font-size: 4em;
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 400;
   text-align: center;
   margin: 0 0 0 0;
@@ -27,7 +27,7 @@ html {
 
 #subtitle {
   font-size: 2em;
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 400;
   text-align: center;
   margin: 0 0 2em 0;
@@ -35,12 +35,12 @@ html {
 
 .post-title {
   margin: 0;
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Lato', sans-serif;
 }
 
 .post-subtitle {
   margin: 0 0 1em 0;
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Lato', sans-serif;
 }
 
 hr.divider {
@@ -91,6 +91,17 @@ hr.divider {
 
 @media (min-width: 64rem) {
   .post-content { width: 50%; }
+}
+
+.social-bar {
+  height: 40px;
+  background-color: #516EA6;
+  text-align: center;
+}
+
+.social-bar img {
+  height: 20px;
+  margin: 10px 10px 10px 10px
 }
 
 a {

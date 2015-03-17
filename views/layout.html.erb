@@ -3,7 +3,7 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/application.css">
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
@@ -14,6 +14,15 @@
         <a href="/" class="home">Code Paradoxon</a>
       </div>
     </header>
+    <div class="social-bar">
+      <a href="http://twitter.com/felipesere">
+        <img src="/images/social/twitter_logo_black.png">
+      </a>
+
+      <a href="http://github.com/felipesere">
+        <img src="/images/social/github.svg">
+      </a>
+    </div>
 
     <%= erb :title, locals: { title: title, subtitle: subtitle } %>
 
