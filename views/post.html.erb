@@ -1,12 +1,36 @@
 <% content_for :body do %>
+  <%= erb :social_bar %>
+
+  <div class="post-heading">
+    <%= erb :title, locals: { title: title, subtitle: subtitle } %>
+    <%= erb :post_metadata, locals: { post: post } %>
+  </div>
   <div class="post-content">
+
     <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in pellentesque quam. Nullam tempus sit amet massa at imperdiet. Nulla facilisi. In ut arcu feugiat nisi malesuada porttitor. Sed cursus lectus ac felis commodo maximus. Aliquam lacinia, magna id facilisis molestie, risus justo vehicula nunc, vitae tincidunt nunc lacus in orci. Nullam id elit tellus. Suspendisse at sapien pulvinar dui rutrum mattis sit amet eu purus. Integer augue ex, suscipit aliquet feugiat placerat, feugiat ac ante. Suspendisse potenti. Duis id mollis lorem, sed tempus enim.
     </p>
 
     <p>
-    Sed tempus est nibh, eleifend tempus turpis luctus ut. Duis ornare, arcu nec egestas vulputate, velit libero pharetra nisi, eu gravida neque nibh ac lorem. Quisque tincidunt metus vitae suscipit aliquet. Aenean porta ut lorem non suscipit. Quisque condimentum volutpat enim at venenatis. Integer quis metus eu arcu consectetur vehicula eu vel leo. Sed mollis lacus non condimentum rutrum. Nullam convallis sapien sit amet quam volutpat luctus. Ut placerat condimentum congue. Curabitur lobortis tristique interdum. Quisque accumsan finibus gravida. Phasellus bibendum, ex sit amet rutrum tempus, est dolor maximus nulla, id blandit ipsum quam at ex. Integer massa orci, ultrices et leo ut, tincidunt sagittis nulla. Quisque nec purus lorem.
-    </p>
+    <div class="highlight"><pre><span class="k">class</span> <span class="nc">Dog</span> <span class="o">&lt;</span> <span class="no">Struct</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span>
+  <span class="k">def</span> <span class="nf">sound</span>
+    <span class="s2">"Woof"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Cat</span> <span class="o">&lt;</span> <span class="no">Struct</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span>
+  <span class="k">def</span> <span class="nf">sound</span>
+    <span class="s2">"Meow"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">introduce</span><span class="p">(</span><span class="n">animal</span><span class="p">)</span>
+  <span class="s2">"</span><span class="si">#{</span><span class="n">animal</span><span class="o">.</span><span class="n">sound</span><span class="si">}</span><span class="s2">, my name is </span><span class="si">#{</span><span class="n">animal</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+
+<span class="n">introduce</span><span class="p">(</span><span class="no">Dog</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">"Rex"</span><span class="p">))</span> <span class="c1"># Woof, my name is Rex </span>
+<span class="n">introduce</span><span class="p">(</span><span class="no">Cat</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">"Kit"</span><span class="p">))</span> <span class="c1"># Meow, my name is Kit</span></pre></div>
+</p>
 
     <p>
     Duis vitae ligula sem. Suspendisse sit amet ligula tempus, porttitor arcu sed, volutpat neque. Maecenas pellentesque sem neque. Aenean laoreet tincidunt est, eget finibus orci auctor tincidunt. Nam feugiat, turpis ac pretium condimentum, felis mi volutpat metus, ac sodales sapien ligula sed ipsum. Praesent sed hendrerit sapien. Sed semper sem et nisl finibus, eget pellentesque tortor dapibus. Quisque sed purus ut sapien egestas venenatis. Nulla ac tellus sed nibh consectetur mollis tempor vitae dui. Ut sed porttitor massa. Suspendisse nec purus volutpat, tempor felis vel, ullamcorper nunc. Duis lobortis velit turpis, tristique ultrices libero ultricies quis. Nulla id lobortis leo.

@@ -1,4 +1,15 @@
 <% content_for :body do %>
+  <header style="background-image: url(/images/index/untitled-1-Edit-Edit.jpg);
+                 background-position: center;
+                 background-attachment: fixed;" >
+  <div id="navbar">
+    <a href="/" class="home">Home</a>
+  </div>
+  </header>
+  <%= erb :social_bar %>
+
+  <%= erb :title, locals: { title: title, subtitle: subtitle } %>
+
   <div class="posts">
     <% posts.each do |post| %>
       <%= erb :post_snippet, :locals => {post: post} %>

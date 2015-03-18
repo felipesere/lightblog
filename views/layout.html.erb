@@ -7,26 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <header style="background-image: url(/images/index/untitled-1-Edit-Edit.jpg);
-                   background-position: center;
-                   background-attachment: fixed;" >
-      <div id="navbar">
-        <a href="/" class="home">Home</a>
-      </div>
-    </header>
-    <div class="social-bar">
-      <a href="http://twitter.com/felipesere" target="_blank">
-        <img src="/images/social/twitter_logo_black.png" >
-      </a>
-
-      <a href="http://github.com/felipesere" target="_blank">
-        <img src="/images/social/github.svg" >
-      </a>
-    </div>
-
-    <%= erb :title, locals: { title: title, subtitle: subtitle } %>
-
     <%= yield_content :body %>
+
+    <hr class="divider" />
+    <footer>
+      <p>
+       © Felipe Sere 2015. All rights reserved.
+      </p>
+    </footer>
   </body>
 </html>
 

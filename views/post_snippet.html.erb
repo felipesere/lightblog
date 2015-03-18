@@ -6,8 +6,6 @@
 <div class="excerpt">
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in pellentesque quam. Nullam tempus sit amet massa at imperdiet. Nulla facilisi. In ut arcu feugiat nisi malesuada porttitor. Sed...
 </div>
-<p class="metadata">
-Posted by <a href="#"><%= post.author %></a> on <%= post.date %>
-  </p>
+  <%= erb :post_metadata, locals: { post: post } %>
   <hr class="divider"/>
 </div>
