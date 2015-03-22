@@ -97,6 +97,8 @@ hr.divider {
   width: 90%;
   margin: auto;
   text-align: center;
+  position: relative;
+  top: 30px;
 }
 
 @media (min-width: 40rem) {
@@ -107,19 +109,24 @@ hr.divider {
   .post-heading { width: 50%; }
 }
 
-.social-bar {
+.social-bar-fixed {
   height: 40px;
   background-color: #516EA6;
   text-align: center;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
 }
 
-#navbar {
-  padding: 30px 10px;
-}
-
-.social-bar img {
+.icon {
   height: 20px;
   margin: 10px 10px 10px 10px
+}
+
+.social-bar-float {
+  height: 40px;
+  background-color: #516EA6;
+  text-align: center;
 }
 
 a {

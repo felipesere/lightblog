@@ -1,5 +1,5 @@
 <% content_for :body do %>
-  <%= erb :social_bar, locals: { show_home: true } %>
+  <%= erb :social_bar, locals: { show_home: true, type: :fixed } %>
 
   <div class="post-heading">
     <%= erb :title, locals: { title: title, subtitle: subtitle } %>
