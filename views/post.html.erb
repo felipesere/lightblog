@@ -2,7 +2,8 @@
   <%= erb :social_bar, locals: { show_home: true, type: :fixed } %>
 
   <div class="post-heading">
-    <%= erb :title, locals: { title: title, subtitle: subtitle } %>
+    <h1 id="title"><%= title %></h1>
+    <h3 id="subtitle"><%= subtitle %></h3>
     <%= erb :post_metadata, locals: { post: post } %>
   </div>
   <div class="post-content">

@@ -30,9 +30,41 @@ html {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
   text-align: center;
-  margin: 0 0 2em 0;
+  margin: 0;
 }
 
+#site-title {
+  font-size: 5em;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  margin: 0;
+}
+
+#site-subtitle {
+  font-size: 2em;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 1em;
+}
+
+#page-title {
+  font-size: 4em;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  margin: 0;
+}
+
+#page-subtitle {
+  font-size: 2em;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  margin: 0;
+}
 .post-title {
   margin: 0;
   font-family: 'Lato', sans-serif;
