@@ -15,10 +15,6 @@ RSpec.describe "index", :type => :feature do
     expect(page.find("#subtitle").text).to eq 'Musings on Code'
   end
 
-  it 'has a navbar' do
-    expect(page).to have_css('#navbar .home')
-  end
-
   describe 'posts' do
     it 'has a container for posts' do
       expect(page).to have_css('.posts')
