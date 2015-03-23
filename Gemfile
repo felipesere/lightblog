@@ -11,4 +11,6 @@ gem 'capybara'
 
 group :development do
   gem 'rerun'
+  gem 'rubocop'
+  gem 'rspec'
 end

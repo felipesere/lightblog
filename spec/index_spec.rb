@@ -11,8 +11,8 @@ RSpec.describe "index", :type => :feature do
 
   it 'has a title' do
     expect(page).to have_title 'Code Paradoxon'
-    expect(page.find("#title").text).to eq 'Code Paradoxon'
-    expect(page.find("#subtitle").text).to eq 'Musings on Code'
+    expect(page.find("#site-title").text).to eq 'Code Paradoxon'
+    expect(page.find("#site-subtitle").text).to eq 'Musings on Code'
   end
 
   describe 'posts' do
