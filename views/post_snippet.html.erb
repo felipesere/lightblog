@@ -4,7 +4,7 @@
   <h3 class="post-subtitle"><%= post.subtitle %></h3>
 </a>
 <div class="excerpt">
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in pellentesque quam. Nullam tempus sit amet massa at imperdiet. Nulla facilisi. In ut arcu feugiat nisi malesuada porttitor. Sed...
+  <%= post.snippet(50) %>
 </div>
   <%= erb :post_metadata, locals: { post: post } %>
   <hr class="divider"/>

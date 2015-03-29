@@ -8,6 +8,7 @@ module LightBlog
     class Post
       def self.from_raw(raw)
         params = HashWithIndifferentAccess.new YAML.load(raw)
+        params[:content] = extract_content(raw)
         new(params)
       end
 
@@ -15,14 +16,27 @@ module LightBlog
         @params = params
         @title = params[:title]
         @subtitle = params[:subtitle]
+        @content = params[:content]
         @author = params[:author]
         @date = format_date
         @slug = extract_slug
       end
 
-      attr_reader :title, :subtitle, :author, :date, :slug
+      def snippet(size=25)
+        "#{words(size).rstrip}..."
+      end
+
+      def words(size)
+        content.scan(/\S+/).take(size).join(" ")
+      end
+
+      attr_reader :title, :content, :subtitle, :author, :date, :slug
 
       private
+        def self.extract_content(raw)
+          raw.gsub(/---.+---/m," ").lstrip
+        end
+
         def extract_slug
           @params[:slug] || generate_slug
         end

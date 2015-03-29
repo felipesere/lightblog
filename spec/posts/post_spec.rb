@@ -10,8 +10,9 @@ author: felipe sere
 date: 2015-03-23
 slug: some-slug
 ---
-
 # i am not a fan of homoiconism
+
+*what* up
 "
   end
 
@@ -43,12 +44,24 @@ slug: some-slug
     it "has a date" do
       expect(post.date).to eq "March 23, 2015"
     end
+
+    it "has raw content" do
+      expect(post.content).to eq "# i am not a fan of homoiconism\n\n*what* up\n"
+    end
   end
 
   describe "generated properties" do
     it "generates a slug from the title" do
       post = LightBlog::Posts::Post.from_raw("---\ntitle: Some Title\n---")
       expect(post.slug).to eq "some-title"
+    end
+
+    it "generates a short snippet" do
+
+       content = "---\ntitle: some title\n---\n#{'Word ' * 100}"
+
+       post = LightBlog::Posts::Post.from_raw(content)
+       expect(post.snippet(25)).to eq "#{'Word ' * 24}Word..."
     end
   end
 end
