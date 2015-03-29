@@ -3,10 +3,11 @@ source 'https://rubygems.org'
 
 gem 'sinatra', '~> 1.4.5'
 gem 'sinatra-contrib'
+gem 'sinatra-named-routes'
+gem 'activesupport'
 
 gem 'thin'
 gem 'rake'
-gem 'activesupport'
 
 
 group :development do
