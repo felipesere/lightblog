@@ -8,8 +8,6 @@ Small changes in parts of your application can have an effect on distant compone
 
 For this blog I want to explore the effects of making the size of my TicTacToe board user-selectable.
 
-<!--more-->
-
 # The approach
 
 I decided to approach this change inside-out: I would begin by making my `Board` capable of accepting a variable board size, then proceed to make the UI capable of displaying it and finally make the user able to choose a size. Whatever broke along the way would be fixed then and there.

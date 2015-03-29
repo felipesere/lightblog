@@ -7,6 +7,8 @@ date: 2015-02-23
 
 With the new year I decided it was time to pick up a new language. Having always used high-level languages I decided to try out Rust, a system language.
 
+<!-- more -->
+
 After getting through the first steps of reading the excellent [Rust guide](http://doc.rust-lang.org/1.0.0-alpha/book/), using [playpen](https://play.rust-lang.org/), writing a kata or two and a toy application, I felt confident enough to push my boundaries. Hence I decided to port [selecta](https://github.com/garybernhardt/selecta) - a fuzzy-matching filter for the command-line written in Ruby - to Rust.
 
 Doing a port would allow me to focus on language specifc aspects rather than solving a specific domain problem. Consider it a larger kata, where you already know the solution and deliberately focus on using the tools at hand.

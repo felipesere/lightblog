@@ -24,7 +24,7 @@ module LightBlog
       end
 
       def snippet(size=25)
-        markdown(words(size) + "...").rstrip
+        markdown(extract_snippet(size) + "...").rstrip
       end
 
       attr_reader :title, :content, :subtitle, :author, :date, :slug
@@ -37,15 +37,24 @@ module LightBlog
         def markdown(text)
           Kramdown::Document.new(text, auto_ids: false, 
                                        syntax_highlighter: 'coderay',
-                                       syntax_highlighter_opts: { line_numbers: false } ).to_html
+                                       syntax_highlighter_opts: { line_numbers: false,
+                                                                  css: :class} ).to_html
         end
 
         def body
-          @params[:raw].gsub(/---.+---/m," ").lstrip
+          @params[:raw].gsub(/---.+---/m,"").lstrip
         end
 
-        def words(size)
-          body.scan(/\S+/).take(size).join(" ")
+        def extract_snippet(size)
+          if has_marker?
+            body[/(.+)<!-- more -->.*/m, 1].strip
+          else
+            body.scan(/\S+/).take(size).join(" ")
+          end
+        end
+
+        def has_marker?
+          body.include?("<!-- more -->")
         end
 
         def extract_slug
