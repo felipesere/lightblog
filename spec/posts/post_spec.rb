@@ -46,7 +46,7 @@ slug: some-slug
     end
 
     it "has raw content" do
-      expect(post.content).to eq "# i am not a fan of homoiconism\n\n*what* up\n"
+      expect(post.content).to eq "<h1>i am not a fan of homoiconism</h1>\n\n<p><em>what</em> up</p>\n"
     end
   end
 
@@ -61,7 +61,7 @@ slug: some-slug
        content = "---\ntitle: some title\n---\n#{'Word ' * 100}"
 
        post = LightBlog::Posts::Post.from_raw(content)
-       expect(post.snippet(25)).to eq "#{'Word ' * 24}Word..."
+       expect(post.snippet(25)).to eq "<p>#{'Word ' * 24}Word…</p>"
     end
   end
 end

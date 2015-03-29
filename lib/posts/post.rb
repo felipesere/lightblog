@@ -1,4 +1,5 @@
 require 'yaml'
+require 'kramdown'
 require 'active_support/core_ext/hash/indifferent_access'
 require 'active_support/core_ext/date_time/calculations'
 require 'active_support/core_ext/object/blank'
@@ -8,7 +9,7 @@ module LightBlog
     class Post
       def self.from_raw(raw)
         params = HashWithIndifferentAccess.new YAML.load(raw)
-        params[:content] = extract_content(raw)
+        params[:raw] = raw
         new(params)
       end
 
@@ -16,25 +17,33 @@ module LightBlog
         @params = params
         @title = params[:title]
         @subtitle = params[:subtitle]
-        @content = params[:content]
+        @content = extract_content
         @author = params[:author]
         @date = format_date
         @slug = extract_slug
       end
 
       def snippet(size=25)
-        "#{words(size).rstrip}..."
+        markdown(words(size) + "...").rstrip
       end
 
       def words(size)
-        content.scan(/\S+/).take(size).join(" ")
+        body.scan(/\S+/).take(size).join(" ")
       end
 
       attr_reader :title, :content, :subtitle, :author, :date, :slug
 
       private
-        def self.extract_content(raw)
-          raw.gsub(/---.+---/m," ").lstrip
+        def extract_content
+          markdown(body)
+        end
+
+        def markdown(text)
+          Kramdown::Document.new(text, auto_ids: false).to_html
+        end
+
+        def body
+          @params[:raw].gsub(/---.+---/m," ").lstrip
         end
 
         def extract_slug

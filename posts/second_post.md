@@ -5,4 +5,4 @@ author: Felipe Sere
 date: 2014-11-23
 ---
 
-# I am not a fan of homoiconism
+I am not a fan of homoiconism

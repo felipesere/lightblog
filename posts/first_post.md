@@ -5,4 +5,4 @@ author: Felipe Sere
 date: 2014-9-23
 ---
 
-# I am not a fan of homoiconism
+This is some random text I am just making up
