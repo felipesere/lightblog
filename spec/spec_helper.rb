@@ -1,6 +1,4 @@
-require_relative '../app.rb'
-require 'capybara'
-require 'capybara/rspec'
+$:.unshift(File.join(File.expand_path(File.dirname(__FILE__)), '..', 'lib'))
 
 RSpec.configure do |config|
   config.expect_with :rspec do |c|
@@ -11,6 +9,3 @@ RSpec.configure do |config|
   config.filter_run :focus
   config.order = 'random'
 end
-
-Capybara.app = LightBlog::App
-

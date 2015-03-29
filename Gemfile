@@ -6,8 +6,8 @@ gem 'sinatra-contrib'
 
 gem 'thin'
 gem 'rake'
+gem 'activesupport'
 
-gem 'capybara'
 
 group :development do
   gem 'rerun'
