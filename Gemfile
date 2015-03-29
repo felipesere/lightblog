@@ -11,7 +11,7 @@ gem 'coderay'
 
 gem 'thin'
 gem 'rake'
-
+gem 'sass'
 
 group :development do
   gem 'rerun'
