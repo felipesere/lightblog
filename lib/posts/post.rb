@@ -1,6 +1,7 @@
 require 'yaml'
 require 'active_support/core_ext/hash/indifferent_access'
 require 'active_support/core_ext/date_time/calculations'
+require 'active_support/core_ext/object/blank'
 
 module LightBlog
   module Posts
@@ -15,7 +16,7 @@ module LightBlog
         @title = params[:title]
         @subtitle = params[:subtitle]
         @author = params[:author]
-        @date = params[:date]
+        @date = format_date
         @slug = extract_slug
       end
 
@@ -28,6 +29,12 @@ module LightBlog
 
         def generate_slug
           @params.fetch(:title).downcase.gsub(/\s+/,'-')
+        end
+
+        def format_date
+          if @params[:date].present?
+            @params[:date].strftime("%B %e, %Y")
+          end
         end
     end
   end

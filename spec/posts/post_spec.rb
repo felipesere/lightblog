@@ -41,7 +41,7 @@ slug: some-slug
     end
 
     it "has a date" do
-      expect(post.date).to eq Date.new(2015,3,23)
+      expect(post.date).to eq "March 23, 2015"
     end
   end
 
