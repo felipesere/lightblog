@@ -27,10 +27,6 @@ module LightBlog
         markdown(words(size) + "...").rstrip
       end
 
-      def words(size)
-        body.scan(/\S+/).take(size).join(" ")
-      end
-
       attr_reader :title, :content, :subtitle, :author, :date, :slug
 
       private
@@ -39,11 +35,17 @@ module LightBlog
         end
 
         def markdown(text)
-          Kramdown::Document.new(text, auto_ids: false).to_html
+          Kramdown::Document.new(text, auto_ids: false, 
+                                       syntax_highlighter: 'coderay',
+                                       syntax_highlighter_opts: { line_numbers: false } ).to_html
         end
 
         def body
           @params[:raw].gsub(/---.+---/m," ").lstrip
+        end
+
+        def words(size)
+          body.scan(/\S+/).take(size).join(" ")
         end
 
         def extract_slug

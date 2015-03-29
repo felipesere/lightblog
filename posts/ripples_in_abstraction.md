@@ -20,7 +20,7 @@ The very first change was relatively trivial: I added a new constructor to my `B
 
 The code below show my abstraction for a `Line` on a `Board`. It hides away which direction the line is in. The problem with this little class is that even though it looks like a sound abstraction, there is a flaw that allows the the underlying datastrucure to leak:
 
-```java
+~~~ java
 class Line {
   private final PlayerMark first;
   private final PlayerMark second;
@@ -44,7 +44,7 @@ class Line {
      ...
    }
 }
-```
+~~~
 
 Though the constructor accepts a `List<PlayerMark>`, it assigns the values to three individual fields. This breaks the abstraction, because the individual fields are less expressive than the list (they don't scale in size). The solution to this is simple: Change three individual fields into a list and adjust the method accordingly.
 
@@ -54,7 +54,7 @@ T    his is a simple example where a client of this class can reasonably expect 
 
 The next bit that broke was the fact that even though the `Line` was not generic enough to contain any amount of `PlayerMarks`, it was not getting more than three. Spotting the reason for that was trivial. Just have a look at these three methods:
 
-```java
+~~~ java
 private List<Line> getRows() {
   List<Line> rows = new LinkedList<>();
   rows.add(line(0, 1, 2));
@@ -77,13 +77,13 @@ private List<Line> getDiagonals() {
   diagonals.add(line(2, 4, 6));
   return diagonals;
 }
-```
+~~~
 
 These three methods are hardcoded against the size of the board. This is where putting in the right abstraction or *formula* to calculate rows and columns comes into play and is, in my eyes, debatable. Sure, hardcoding these values means they will not accept any kind of change, but adding the proper function for rows, columns and diagonals without having a flexibile size is pointless. It makes the code harder to read and understand does not benefit it immediately.
 
 So I went ahead and added the proper functions:
 
-```java
+~~~ java
 private List<Line> getRows() {
   return Lists.partition(marks, sideSize).stream().map(Line::new).collect(toList());
 }
@@ -105,7 +105,7 @@ private List<Line> getDiagonals() {
   });
   return asList(new Line(topLeft), new Line(topRight));
 }
-```
+~~~
 
 
 If asked to write TicTacToe again, I would do this all over. Although I do see the value in having this scalable, it simply does not carry its own weight without flexible board sizes. This is the case of a premature abstraction which should be avoided as much as a missed abstractions.

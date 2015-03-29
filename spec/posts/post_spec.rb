@@ -57,11 +57,10 @@ slug: some-slug
     end
 
     it "generates a short snippet" do
+      content = "---\ntitle: some title\n---\n#{'Word ' * 100}"
 
-       content = "---\ntitle: some title\n---\n#{'Word ' * 100}"
-
-       post = LightBlog::Posts::Post.from_raw(content)
-       expect(post.snippet(25)).to eq "<p>#{'Word ' * 24}Word…</p>"
+      post = LightBlog::Posts::Post.from_raw(content)
+      expect(post.snippet(25)).to eq "<p>#{'Word ' * 24}Word…</p>"
     end
   end
 end
