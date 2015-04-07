@@ -52,28 +52,24 @@ T    his is a simple example where a client of this class can reasonably expect 
 
 The next bit that broke was the fact that even though the `Line` was not generic enough to contain any amount of `PlayerMarks`, it was not getting more than three. Spotting the reason for that was trivial. Just have a look at these three methods:
 
-~~~ java
-private List<Line> getRows() {
-  List<Line> rows = new LinkedList<>();
-  rows.add(line(0, 1, 2));
-  rows.add(line(3, 4, 5));
-  rows.add(line(6, 7, 8));
-  return rows;
+~~~ 
+use score::Match;
+
+#[derive(PartialEq, Debug)]
+pub enum Text<'a> {
+  Colored(Match<'a>),
+    Normal(String),
+    Highlight(String),
+    Blank,
 }
 
-private List<Line> getColumns() {
-  List<Line> columns = new LinkedList<>();
-  columns.add(line(0, 3, 6));
-  columns.add(line(1, 4, 7));
-  columns.add(line(2, 5, 8));
-  return columns;
-}
-
-private List<Line> getDiagonals() {
-  List<Line> diagonals = new LinkedList<>();
-  diagonals.add(line(0, 4, 8));
-  diagonals.add(line(2, 4, 6));
-  return diagonals;
+impl<'a> Text<'a> {
+  pub fn printable(self) -> String {
+    match self {
+      Text::Normal(t) => t,
+        _ => "fail".to_string(),
+    }
+  }
 }
 ~~~
 
@@ -81,28 +77,23 @@ These three methods are hardcoded against the size of the board. This is where p
 
 So I went ahead and added the proper functions:
 
-~~~ java
-private List<Line> getRows() {
-  return Lists.partition(marks, sideSize).stream().map(Line::new).collect(toList());
-}
+~~~ ruby
+class Coinchanger
+  COINS = [50, 20, 10, 5,2, 1]
 
-private List<Line> getColumns() {
-  return range(0,sideSize).mapToObj(i -> new Line(getColumn(i))).collect(toList());
-}
+  def self.change_for(amount)
+    change = []
 
-private List<PlayerMark> getColumn(int column) {
-  return range(0, sideSize).mapToObj(i -> marks.get(column + i * sideSize)).collect(toList());
-}
+    COINS.each do |coin|
+      while amount >= coin
+        change << coin
+        amount -= coin
+      end
+    end
 
-private List<Line> getDiagonals() {
-  List<PlayerMark> topLeft = new LinkedList<>();
-  List<PlayerMark> topRight = new LinkedList<>();
-  range(0, sideSize).forEach(i -> {
-    topLeft.add(marks.get(i * (sideSize + 1)));
-    topRight.add(marks.get((i + 1) * (sideSize - 1)));
-  });
-  return asList(new Line(topLeft), new Line(topRight));
-}
+    change
+  end
+end
 ~~~
 
 
@@ -113,6 +104,26 @@ If asked to write TicTacToe again, I would do this all over. Although I do see t
 The next part that did not support flexible board sizes was the actual *visualisation* of the board in the console. The first version did nothing clever about the size and just replaced numbers in a template. The problem is that that template was hardcoded.
 
 Handling this issue elegantly is hard. We are not interested in the abstract concept of a board and what we can do with it or what we can ask it. We care about the underlying structure and how to represent it to the user. Well, that is not entirely true. There is a certain level of abstraction we could try to fulfil. The user has a predefined notion of what a board looks like. Probably rectangular with Xs where X played and Os for the opponent. What makes this hard is that we have to translate from our internal board into such a "UX board", and do so without binding to tightly to our internal datastrucutre.
+
+And here is some random Clojure:
+
+~~~ clojure
+(ns pinaclj.quote-transform
+ (:require [net.cgrand.enlive-html :as html]))
+
+(defn- blank? [ch]
+ (or (nil? ch) (Character/isWhitespace ch) (= \> ch)))
+
+(defn- replace-quote [next-char last-char]
+  (cond
+    (and (= \' next-char) (blank? last-char)) "&lsquo;"
+    (= \' next-char) "&rsquo;"
+    (and (= \" next-char) (blank? last-char)) "&ldquo;"
+    :else "&rdquo;"))
+
+(defn- quote-char? [ch]
+ (or (= \' ch) (= \" ch)))
+~~~
 
 The way I decided to solve this is to make two informations available on the board:
 
