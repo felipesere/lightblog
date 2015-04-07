@@ -32,7 +32,7 @@ I am not a fan of homoiconism
     it "has an author" do
       expect(post.author).to eq "felipe sere"
     end
-    
+
     it "has an author" do
       expect(post.author).to eq "felipe sere"
     end

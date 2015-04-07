@@ -35,7 +35,7 @@ module LightBlog
         end
 
         def markdown(text)
-          Kramdown::Document.new(text, auto_ids: false, 
+          Kramdown::Document.new(text, auto_ids: false,
                                        syntax_highlighter: 'coderay',
                                        syntax_highlighter_opts: { line_numbers: false,
                                                                   css: :class} ).to_html

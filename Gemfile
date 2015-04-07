@@ -15,6 +15,5 @@ gem 'sass'
 
 group :development do
   gem 'rerun'
-  gem 'rubocop'
   gem 'rspec'
 end
