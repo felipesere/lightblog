@@ -54,30 +54,20 @@ I am not a fan of homoiconism
     end
   end
 
-  it "simple test" do
-    content = File.read("./posts/first_post.md")
-    post = LightBlog::Posts::Post.from_raw(content)
-    expect(post.snippet).to eq "<p>This is some random text I am just making up...</p>"
+  it "generates a slug from the title" do
+    post = LightBlog::Posts::Post.from_raw("---\ntitle: some title\n---")
+    expect(post.slug).to eq "some-title"
   end
 
-  describe "generated properties" do
-    it "generates a slug from the title" do
-      post = LightBlog::Posts::Post.from_raw("---\ntitle: some title\n---")
-      expect(post.slug).to eq "some-title"
-    end
+  let(:post) do
+    content = "---\ntitle: some title\n---\nThis is the snippet\n<!-- more -->\nThis is not it"
+    LightBlog::Posts::Post.from_raw(content)
+  end
+  it "generates a snippet" do
+    expect(post.snippet(25)).to eq "<p>This is the snippet...</p>"
+  end
 
-    it "generates a short snippet" do
-      content = "---\ntitle: some title\n---\nThis is the snippet<!-- more -->This is not it"
-
-      post = LightBlog::Posts::Post.from_raw(content)
-      expect(post.snippet(25)).to eq "<p>This is the snippet...</p>"
-    end
-
-    it "removes the 'more' marker" do
-      content = "---\ntitle: some title\n---\nThis is the snippet\n<!-- more -->\nThis is not it"
-
-      post = LightBlog::Posts::Post.from_raw(content)
-      expect(post.content).to eq "<p>This is the snippet</p>\n\n<p>This is not it</p>"
-    end
+  it "has the entire content without '<!-- more -->' tag" do
+    expect(post.content).to eq "<p>This is the snippet</p>\n\n<p>This is not it</p>"
   end
 end
