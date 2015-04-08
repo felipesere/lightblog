@@ -18,8 +18,8 @@ module LightBlog
         @params = params
         @title = params[:title]
         @subtitle = params[:subtitle]
-        @content = extract_content
         @author = params[:author]
+        @content = extract_content
         @date = format_date
         @slug = extract_slug
       end
@@ -32,10 +32,10 @@ module LightBlog
 
       private
         def extract_content
-          markdown(remove_tag(body)).strip
+          markdown(wihtout_marker(body)).strip
         end
 
-        def remove_tag(text)
+        def wihtout_marker(text)
           text.gsub(/<!-- more -->/,"")
         end
 
@@ -60,10 +60,18 @@ module LightBlog
 
         def extract_snippet(size)
           if has_marker?
-            body[/(.+)<!-- more -->.*/m, 1].strip
+            up_to_marker
           else
-            body.scan(/\S+/).take(size).join(" ")
+            up_to_words(size)
           end
+        end
+
+        def up_to_marker
+            body[/(.+)<!-- more -->.*/m, 1].strip
+        end
+
+        def up_to_words(size)
+          body.scan(/\S+/).take(size).join(" ")
         end
 
         def has_marker?
@@ -79,9 +87,13 @@ module LightBlog
         end
 
         def format_date
-          if @params[:date].present?
+          if has_date?
             @params[:date].strftime("%B %e, %Y")
           end
+        end
+
+        def has_date?
+          @params[:date].present?
         end
     end
   end
