@@ -6,7 +6,7 @@ gem 'sinatra-contrib'
 gem 'sinatra-named-routes'
 gem 'activesupport'
 
-gem 'kramdown'
+gem 'redcarpet'
 gem 'coderay'
 
 gem 'thin'

@@ -1,5 +1,6 @@
 require 'yaml'
-require 'kramdown'
+require 'redcarpet'
+require 'posts/markdown_renderer'
 require 'active_support/core_ext/hash/indifferent_access'
 require 'active_support/core_ext/date_time/calculations'
 require 'active_support/core_ext/object/blank'
@@ -31,18 +32,30 @@ module LightBlog
 
       private
         def extract_content
-          markdown(body)
+          markdown(remove_tag(body)).strip
+        end
+
+        def remove_tag(text)
+          text.gsub(/<!-- more -->/,"")
         end
 
         def markdown(text)
-          Kramdown::Document.new(text, auto_ids: false,
-                                       syntax_highlighter: 'coderay',
-                                       syntax_highlighter_opts: { line_numbers: false,
-                                                                  css: :class} ).to_html
+          coderayified = LightBlog::MarkdownRenderer.new(filter_html: true, hard_wrap: true)
+          options = {
+            :fenced_code_blocks => true,
+            :no_intra_emphasis => true,
+            :autolink => true,
+            :strikethrough => true,
+            :lax_html_blocks => true,
+            :superscript => true
+          }
+
+          markdown_to_html = Redcarpet::Markdown.new(coderayified, options)
+          markdown_to_html.render(text)
         end
 
         def body
-          @params[:raw].gsub(/---.+---/m,"").lstrip
+         @params[:raw].gsub(/---.+---/m,"").lstrip
         end
 
         def extract_snippet(size)

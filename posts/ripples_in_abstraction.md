@@ -52,7 +52,7 @@ T    his is a simple example where a client of this class can reasonably expect 
 
 The next bit that broke was the fact that even though the `Line` was not generic enough to contain any amount of `PlayerMarks`, it was not getting more than three. Spotting the reason for that was trivial. Just have a look at these three methods:
 
-~~~ 
+~~~ c
 use score::Match;
 
 #[derive(PartialEq, Debug)]

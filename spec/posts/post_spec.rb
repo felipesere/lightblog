@@ -46,18 +46,18 @@ I am not a fan of homoiconism
     end
 
     it "has raw content" do
-      expect(post.content).to eq "<p>I am not a fan of homoiconism</p>\n\n<p><em>what</em> up</p>\n"
+      expect(post.content).to eq "<p>I am not a fan of homoiconism</p>\n\n<p><em>what</em> up</p>"
     end
 
     it "has a baisc snippet" do
-      expect(post.snippet(3)).to eq "<p>I am not…</p>"
+      expect(post.snippet(3)).to eq "<p>I am not...</p>"
     end
   end
 
   it "simple test" do
     content = File.read("./posts/first_post.md")
     post = LightBlog::Posts::Post.from_raw(content)
-    expect(post.snippet).to eq "<p>This is some random text I am just making up…</p>"
+    expect(post.snippet).to eq "<p>This is some random text I am just making up...</p>"
   end
 
   describe "generated properties" do
@@ -70,7 +70,14 @@ I am not a fan of homoiconism
       content = "---\ntitle: some title\n---\nThis is the snippet<!-- more -->This is not it"
 
       post = LightBlog::Posts::Post.from_raw(content)
-      expect(post.snippet(25)).to eq "<p>This is the snippet…</p>"
+      expect(post.snippet(25)).to eq "<p>This is the snippet...</p>"
+    end
+
+    it "removes the 'more' marker" do
+      content = "---\ntitle: some title\n---\nThis is the snippet\n<!-- more -->\nThis is not it"
+
+      post = LightBlog::Posts::Post.from_raw(content)
+      expect(post.content).to eq "<p>This is the snippet</p>\n\n<p>This is not it</p>"
     end
   end
 end
