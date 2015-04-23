@@ -1,6 +1,5 @@
 require 'yaml'
-require 'redcarpet'
-require 'posts/markdown_renderer'
+require 'posts/markdown/renderer'
 require 'active_support/core_ext/hash/indifferent_access'
 require 'active_support/core_ext/date_time/calculations'
 require 'active_support/core_ext/object/blank'
@@ -40,18 +39,8 @@ module LightBlog
         end
 
         def markdown(text)
-          coderayified = LightBlog::MarkdownRenderer.new(filter_html: true, hard_wrap: true)
-          options = {
-            :fenced_code_blocks => true,
-            :no_intra_emphasis => true,
-            :autolink => true,
-            :strikethrough => true,
-            :lax_html_blocks => true,
-            :superscript => true
-          }
-
-          markdown_to_html = Redcarpet::Markdown.new(coderayified, options)
-          markdown_to_html.render(text)
+          renderer = LightBlog::Markdown::Renderer.new
+          renderer.markdown(text)
         end
 
         def body
