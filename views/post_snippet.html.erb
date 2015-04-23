@@ -1,11 +1,12 @@
-<div class="post">
-<a href="<%= post_url(post.slug) %>">
-  <h1 class="post-title"><%= post.title %></h1>
-  <h3 class="post-subtitle"><%= post.subtitle %></h3>
-</a>
-<div class="excerpt">
-  <%= post.snippet(50) %>
-</div>
-  <%= erb :post_metadata, locals: { post: post } %>
-  <hr class="divider"/>
-</div>
+<li class="article">
+  <h3 class="article__title"><a href="<%= post_url(post.slug) %>"><%= post.title %></a></h3>
+  <a href="/about"><span class="article__author">Felipe</span></a>
+  &mdash;
+  <span class="article__date"><%= post.date %></span>
+  <div class="article__body">
+    <%= post.snippet(50) %>
+  </div>
+  <div class="article__links">
+    <a href="<%= post_url(post.slug) %>">Read More...</a>
+  </div>
+</li>

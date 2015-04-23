@@ -1,16 +1,30 @@
 <% content_for :body do %>
-  <header style="background-image: url(/images/index/laptop-24-Edit.jpg);
-                 background-position: center;
-                 background-attachment: fixed;" >
-  </header>
-  <%= erb :social_bar, locals: { show_home: false, type: :float } %>
-  <h1 id="site-title"><%= title %></h1>
-  <h3 id="site-subtitle"><%= subtitle %></h3>
 
+<header class="hero">
+  <nav>
+    <a href="/" class="logo">
+      <img src="/images/logos/blue_line_white_logo.svg" alt="Home">
+    </a>
+  </nav>
+
+  <h1>Code Paradoxan</h1>
+  <h2>Musings on Code</h2>
+</header>
   <div class="posts">
+<div class="content-container">
+  <div class="container">
+    <ul>
     <% posts.each do |post| %>
       <%= erb :post_snippet, :locals => {post: post} %>
     <% end %>
+    </ul>
+
+    <div class="bottom-navigation">
+      <a href="#" class="right">Older Posts →</a>
+    </div>
   </div>
+</div>
+
+<%= erb :footer %>
 <% end %>
 
