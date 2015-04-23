@@ -1,0 +1,503 @@
+/* line 10, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+* {
+  box-sizing: border-box; }
+
+/* line 14, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+.container {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 0 1.5em; }
+
+/* line 3, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+.row:after {
+  content: "";
+  display: table;
+  clear: both; }
+/* line 22, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+.row:not(.collapse) {
+  margin-left: -1.5em;
+  margin-right: -1.5em; }
+
+/* line 28, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+.column {
+  float: left;
+  padding: 0 1.5em;
+  position: relative;
+  width: 100%; }
+  /* line 34, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  .column.end {
+    float: right; }
+
+/* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+.column.small-1 {
+  width: 8.33333%; }
+/* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+.column.small-2 {
+  width: 16.66667%; }
+/* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+.column.small-3 {
+  width: 25%; }
+/* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+.column.small-4 {
+  width: 33.33333%; }
+/* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+.column.small-5 {
+  width: 41.66667%; }
+/* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+.column.small-6 {
+  width: 50%; }
+/* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+.column.small-7 {
+  width: 58.33333%; }
+/* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+.column.small-8 {
+  width: 66.66667%; }
+/* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+.column.small-9 {
+  width: 75%; }
+/* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+.column.small-10 {
+  width: 83.33333%; }
+/* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+.column.small-11 {
+  width: 91.66667%; }
+/* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+.column.small-12 {
+  width: 100%; }
+
+@media (min-width: 640px) {
+  /* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  .column.medium-1 {
+    width: 8.33333%; }
+  /* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  .column.medium-2 {
+    width: 16.66667%; }
+  /* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  .column.medium-3 {
+    width: 25%; }
+  /* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  .column.medium-4 {
+    width: 33.33333%; }
+  /* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  .column.medium-5 {
+    width: 41.66667%; }
+  /* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  .column.medium-6 {
+    width: 50%; }
+  /* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  .column.medium-7 {
+    width: 58.33333%; }
+  /* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  .column.medium-8 {
+    width: 66.66667%; }
+  /* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  .column.medium-9 {
+    width: 75%; }
+  /* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  .column.medium-10 {
+    width: 83.33333%; }
+  /* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  .column.medium-11 {
+    width: 91.66667%; }
+  /* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  .column.medium-12 {
+    width: 100%; } }
+@media (min-width: 1024px) {
+  /* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  .column.large-1 {
+    width: 8.33333%; }
+  /* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  .column.large-2 {
+    width: 16.66667%; }
+  /* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  .column.large-3 {
+    width: 25%; }
+  /* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  .column.large-4 {
+    width: 33.33333%; }
+  /* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  .column.large-5 {
+    width: 41.66667%; }
+  /* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  .column.large-6 {
+    width: 50%; }
+  /* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  .column.large-7 {
+    width: 58.33333%; }
+  /* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  .column.large-8 {
+    width: 66.66667%; }
+  /* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  .column.large-9 {
+    width: 75%; }
+  /* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  .column.large-10 {
+    width: 83.33333%; }
+  /* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  .column.large-11 {
+    width: 91.66667%; }
+  /* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  .column.large-12 {
+    width: 100%; } }
+/* line 1, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_about.scss */
+.about-page__photo {
+  border-radius: 50%;
+  border: 3px solid white;
+  display: block;
+  margin: 50px auto;
+  width: 200px; }
+
+/* line 11, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_about.scss */
+.about-page__bio h1 {
+  text-align: center;
+  font-size: 2em;
+  line-height: .8;
+  padding-top: 100px;
+  padding-bottom: 50px; }
+  @media (min-width: 680px) {
+    /* line 11, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_about.scss */
+    .about-page__bio h1 {
+      font-size: 2.5em; } }
+  @media (min-width: 900px) {
+    /* line 11, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_about.scss */
+    .about-page__bio h1 {
+      font-size: 3em; } }
+  @media (min-width: 1000px) {
+    /* line 11, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_about.scss */
+    .about-page__bio h1 {
+      font-size: 3.5em; } }
+  @media (min-width: 1200px) {
+    /* line 11, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_about.scss */
+    .about-page__bio h1 {
+      font-size: 4em; } }
+
+/* line 36, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_about.scss */
+.about-page__social-media {
+  text-align: center;
+  margin-top: 40px; }
+
+/* line 41, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_about.scss */
+.photo-gallery {
+  padding-top: 50px; }
+  /* line 3, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  .photo-gallery:after {
+    content: "";
+    display: table;
+    clear: both; }
+  /* line 45, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_about.scss */
+  .photo-gallery img {
+    display: inline-block;
+    float: left;
+    margin: 0 auto;
+    padding: 3px;
+    width: 100%;
+    transition: opacity 0.5s; }
+    /* line 54, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_about.scss */
+    .photo-gallery img:hover {
+      opacity: 0.6; }
+
+/* line 1, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_articles.scss */
+.article {
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 20px;
+  padding-bottom: 30px; }
+  /* line 6, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_articles.scss */
+  .article:last-of-type {
+    border-bottom: none; }
+
+/* line 11, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_articles.scss */
+.article--full {
+  transition: transform 0.5s; }
+  /* line 14, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_articles.scss */
+  .article--full .article__title {
+    margin-top: 0; }
+
+/* line 19, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_articles.scss */
+.article__header {
+  text-align: center;
+  border-bottom: 1px solid rgba(228, 229, 233, 0.96);
+  padding-bottom: 4rem;
+  position: relative; }
+
+/* line 26, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_articles.scss */
+h3.article__title {
+  font-size: 1.5em;
+  margin-bottom: 0;
+  padding-bottom: 30px; }
+  /* line 31, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_articles.scss */
+  h3.article__title, h3.article__title a, h3.article__title a:visited {
+    color: #516EA6; }
+  /* line 34, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_articles.scss */
+  h3.article__title a:hover {
+    color: #496395; }
+
+/* line 41, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_articles.scss */
+.article__body h2, .article__body h3, .article__body h4 {
+  margin-top: 50px; }
+/* line 45, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_articles.scss */
+.article__body h2 {
+  font-size: 1.3em; }
+/* line 49, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_articles.scss */
+.article__body h3 {
+  font-size: 1.2em; }
+/* line 53, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_articles.scss */
+.article__body h4 {
+  font-size: 1.1em;
+  margin-bottom: 10px; }
+/* line 58, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_articles.scss */
+.article__body img {
+  max-width: 100%;
+  margin: 5px; }
+/* line 63, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_articles.scss */
+.article__body code {
+  color: #0d115a;
+  font-size: 0.75em;
+  background: #eee;
+  padding: 4px; }
+/* line 70, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_articles.scss */
+.article__body pre {
+  background: #eee;
+  padding: 10px;
+  white-space: pre;
+  word-wrap: normal;
+  overflow: auto; }
+
+/* line 80, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_articles.scss */
+.article__date {
+  color: rgba(142, 146, 166, 0.96);
+  font-family: "freight-text-pro",sans-serif;
+  font-size: 1em;
+  font-weight: 400; }
+
+/* line 87, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_articles.scss */
+.article__author {
+  color: rgba(91, 95, 115, 0.96);
+  font-family: "freight-text-pro",sans-serif;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 400; }
+  /* line 94, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_articles.scss */
+  .article__author:hover {
+    opacity: 0.6; }
+
+/* line 99, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_articles.scss */
+.article__links {
+  color: #375D81;
+  font-size: 1em;
+  text-decoration: none; }
+  /* line 104, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_articles.scss */
+  .article__links, .article__links a, .article__links a:visited {
+    color: #6698cb; }
+  /* line 107, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_articles.scss */
+  .article__links a:hover {
+    color: #538ac5; }
+
+/* line 1, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_footer.scss */
+footer {
+  background-color: #354156;
+  color: white;
+  padding: 20px 0; }
+  @media (max-width: 400px) {
+    /* line 1, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_footer.scss */
+    footer {
+      text-align: center; } }
+  /* line 10, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_footer.scss */
+  footer a.link--white {
+    color: white; }
+    /* line 12, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_footer.scss */
+    footer a.link--white:hover {
+      color: #ddd; }
+  /* line 17, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_footer.scss */
+  footer h3 {
+    font-size: 1.4em;
+    margin-bottom: 5px; }
+    @media (min-width: 1200px) {
+      /* line 17, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_footer.scss */
+      footer h3 {
+        color: white;
+        font-size: 1.2em; } }
+  /* line 28, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_footer.scss */
+  footer p {
+    color: white;
+    font-family: "freight-text-pro";
+    font-size: 1.3em;
+    letter-spacing: .01rem;
+    line-height: 1.5;
+    margin-top: 0; }
+    @media (min-width: 400px) {
+      /* line 28, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_footer.scss */
+      footer p {
+        font-size: 1.2em; } }
+    @media (min-width: 600px) {
+      /* line 28, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_footer.scss */
+      footer p {
+        font-size: 1.1em; } }
+    @media (min-width: 1200px) {
+      /* line 28, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_footer.scss */
+      footer p {
+        font-size: 1em; } }
+  /* line 50, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_footer.scss */
+  footer .footer__about-photo {
+    border-radius: 50%;
+    border: 3px solid white;
+    margin: 20px;
+    max-width: 100%;
+    width: 150px;
+    transition: opacity 0.5s; }
+    /* line 58, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_footer.scss */
+    footer .footer__about-photo:hover {
+      opacity: 0.6; }
+
+@media (min-width: 640px) {
+  /* line 64, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_footer.scss */
+  .footer__contact {
+    text-align: right; } }
+
+/* line 1, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_header.scss */
+nav {
+  padding: 50px;
+  text-align: center; }
+  /* line 3, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+  nav:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+/* line 7, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_header.scss */
+header.hero {
+  text-align: center; }
+  /* line 10, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_header.scss */
+  header.hero h1 {
+    font-size: 4em;
+    font-weight: 400;
+    line-height: .8; }
+    @media (min-width: 680px) {
+      /* line 10, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_header.scss */
+      header.hero h1 {
+        font-size: 5em; } }
+    @media (min-width: 900px) {
+      /* line 10, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_header.scss */
+      header.hero h1 {
+        font-size: 6em; } }
+    @media (min-width: 1000px) {
+      /* line 10, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_header.scss */
+      header.hero h1 {
+        font-size: 7em; } }
+    @media (min-width: 1200px) {
+      /* line 10, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_header.scss */
+      header.hero h1 {
+        font-size: 8em; } }
+  /* line 32, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_header.scss */
+  header.hero h2 {
+    font-size: 2em;
+    font-weight: 300;
+    margin-top: 0; }
+    @media (min-width: 680px) {
+      /* line 32, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_header.scss */
+      header.hero h2 {
+        font-size: 3em; } }
+    @media (min-width: 900px) {
+      /* line 32, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_header.scss */
+      header.hero h2 {
+        font-size: 4em; } }
+    @media (min-width: 1000px) {
+      /* line 32, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_header.scss */
+      header.hero h2 {
+        font-size: 5em; } }
+    @media (min-width: 1200px) {
+      /* line 32, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_header.scss */
+      header.hero h2 {
+        font-size: 6em; } }
+  @media (max-width: 600px) {
+    /* line 7, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_header.scss */
+    header.hero {
+      border-bottom: 1px solid #e8e8e8;
+      color: black;
+      text-align: center; }
+      /* line 59, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_header.scss */
+      header.hero .logo {
+        margin: 0 auto; } }
+  @media (min-width: 601px) {
+    /* line 7, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_header.scss */
+    header.hero {
+      background: url("/images/laptop.png");
+      background-size: cover;
+      color: white;
+      height: 900px;
+      width: 100%; }
+      /* line 71, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_header.scss */
+      header.hero h1 {
+        padding-top: 100px; }
+      /* line 75, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_header.scss */
+      header.hero nav {
+        padding-top: 200px; } }
+
+/* line 81, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_header.scss */
+.logo {
+  float: none;
+  transition: opacity 0.5s; }
+  /* line 85, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_header.scss */
+  .logo:hover {
+    opacity: 0.6; }
+  @media (max-width: 601px) {
+    /* line 81, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_header.scss */
+    .logo {
+      float: none; } }
+
+/* line 9, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/all.css.scss */
+.content-container {
+  padding: 50px 10px; }
+
+/* line 13, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/all.css.scss */
+body {
+  background: white;
+  color: #4b4b4b; }
+
+/* line 18, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/all.css.scss */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+
+/* line 24, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/all.css.scss */
+a {
+  text-decoration: none; }
+  /* line 27, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/all.css.scss */
+  a, a:visited {
+    color: #6698cb; }
+  /* line 31, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/all.css.scss */
+  a:hover {
+    color: #538ac5; }
+
+/* line 36, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/all.css.scss */
+h1, h2, h3, h4, h5 {
+  font-family: "jaf-bernino-sans",sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.03em; }
+
+/* line 42, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/all.css.scss */
+p {
+  font-family: "freight-text-pro";
+  font-size: 1em;
+  font-weight: 400;
+  letter-spacing: .01rem;
+  line-height: 1.5; }
+
+/* line 3, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/_grid.scss */
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+/* line 54, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/all.css.scss */
+.left {
+  float: left; }
+
+/* line 58, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/all.css.scss */
+.right {
+  float: right; }
+
+/* line 62, /Users/felipe/Development/ruby/felipes_blog/source/stylesheets/all.css.scss */
+.bottom-navigation {
+  padding-top: 50px;
+  padding-bottom: 30px; }
