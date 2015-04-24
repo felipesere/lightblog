@@ -1,12 +1,30 @@
 <% content_for :body do %>
-  <%= erb :social_bar, locals: { show_home: true, type: :fixed } %>
 
-  <div class="post-heading">
-    <h1 id="title"><%= title %></h1>
-    <h3 id="subtitle"><%= subtitle %></h3>
-    <%= erb :post_metadata, locals: { post: post } %>
+  <nav>
+    <a href="/" class="logo">
+      <img src="/images/logos/white_logo.svg" alt="Home">
+    </a>
+  </nav>
+
+<div class="content-container">
+  <div class="container">
+    <div class="article article--full">
+      <section class="article__header">
+        <h3 class="article__title"><%= title %></h3>
+        <a href="/about"><span class="article__author">Felipe</span></a>
+        &mdash;
+        <span class="article__date"><%= post.date %></span>
+      </section>
+
+      <div class="article__body">
+        <%= post.content %>
+      </div>
+    </div>
+    <div class="bottom-navigation">
+      <a href="#" class="left">← Newer Post</a>
+      <a href="#" class="right">Older Post →</a>
+    </div>
+
   </div>
-  <div class="post-content">
-    <%= post.content %>
-  </div>
+</div>
 <% end %>
