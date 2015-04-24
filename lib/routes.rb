@@ -13,14 +13,16 @@ module LightBlog
 
     get '/' do
       posts = @repository.all
-      erb :index, locals: defaults.merge( posts: posts )
+      erb :index, locals: { posts: posts }
     end
 
     get :post do
       post = @repository.find_by_slug(params[:slug])
-      erb :post, locals: defaults.merge(post: post,
-                                        title: post.title,
-                                        subtitle: post.subtitle)
+      erb :post, locals: { post: post, title: post.title, subtitle: post.subtitlei}
+    end
+
+    get '/about' do
+      erb :about
     end
 
     helpers do
@@ -28,13 +30,5 @@ module LightBlog
         url :post, slug: slug
       end
     end
-
-    private
-      def defaults
-        {
-          title: 'Code Paradoxon',
-          subtitle: 'Musings on Code'
-        }
-      end
   end
 end
