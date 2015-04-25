@@ -33,15 +33,46 @@ slug: some-slug
     expect(repo.find_by_slug("some-slug")).to be_a LightBlog::Posts::Post
   end
 
-  it "returns posts sorted by date" do
-    post1 = create_post("first", "2014-9-23")
-    post2 = create_post("second", "2015-10-11")
-    fs = FakeFilesytem.new
-    fs.add_file("first", post1)
-    fs.add_file("second", post2)
+  describe "orders posts" do
+    let(:post1) {create_post("first", "2011-9-23")}
+    let(:post2) {create_post("second","2012-3-11")}
+    let(:post3) {create_post("third", "2013-5-10")}
+    let(:post4) {create_post("fourth","2014-8-12")}
+    let(:post5) {create_post("fifth", "2015-9-13")}
 
-    repo = described_class.new(fs)
-    expect(repo.all.map{|post| post.title}).to eq ["second", "first"]
+    let(:repo) do
+      fs = FakeFilesytem.new
+      fs.add_file("fifth", post5)
+      fs.add_file("second", post2)
+      fs.add_file("fourth", post4)
+      fs.add_file("first", post1)
+      fs.add_file("third", post3)
+      described_class.new(fs)
+    end
+
+    it "returns posts sorted by date" do
+      expect(repo.all.map{|post| post.title}).to eq ["fifth", "fourth", "third", "second", "first"]
+    end
+
+    it "returns the next newer post" do
+      middle_post = repo.find_by_slug("third")
+      expect(repo.newer(middle_post).title).to eq "fourth"
+    end
+
+    it "newest post has no newer" do
+      fifth = repo.find_by_slug("fifth")
+      expect(repo.newer(fifth)).to be_nil
+    end
+
+    it "returns the next older post" do
+      middle_post = repo.find_by_slug("third")
+      expect(repo.older(middle_post).title).to eq "second"
+    end
+
+    it "oldest post has no older" do
+      first = repo.find_by_slug("first")
+      expect(repo.older(first)).to be_nil
+    end
   end
 end
 

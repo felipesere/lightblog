@@ -19,7 +19,9 @@ module LightBlog
 
     get :post do
       post = @repository.find_by_slug(params[:slug])
-      erb :post, locals: { post: post, title: post.title}
+      newer = @repository.newer(post)
+      older = @repository.older(post)
+      erb :post, locals: { post: post, newer: newer, older: older}
     end
 
     get '/about' do

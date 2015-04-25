@@ -19,6 +19,7 @@ module LightBlog
         @title = params[:title]
         @author = params[:author]
         @date = format_date
+        @raw_date = params[:date]
         @slug = extract_slug
         @text = Text.new(body)
       end
@@ -31,7 +32,7 @@ module LightBlog
         @text.content
       end
 
-      attr_reader :title, :author, :date, :slug
+      attr_reader :title, :author, :date, :raw_date, :slug
 
       private
         def body

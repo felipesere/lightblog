@@ -19,8 +19,8 @@
       </div>
     </div>
     <div class="bottom-navigation">
-      <a href="#" class="left">← Newer Post</a>
-      <a href="#" class="right">Older Post →</a>
+      <%= erb :newer, locals: { newer: newer } %>
+      <%= erb :older, locals: { older: older } %>
     </div>
 
   </div>
