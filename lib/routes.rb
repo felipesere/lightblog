@@ -1,4 +1,5 @@
 require 'sinatra/named_routes'
+require 'tags'
 
 module LightBlog
   class Routes < Sinatra::Application
@@ -29,6 +30,23 @@ module LightBlog
       def post_url(slug)
         url :post, slug: slug
       end
+
+      def css_tag(*names)
+        tags.css(*names)
+      end
+
+      def js_tag(*names)
+        tags.js(*names)
+      end
+
+      def image_tag(names, options={})
+        tags.image(names, options)
+      end
     end
+
+    private
+      def tags
+        Tags.new
+      end
   end
 end

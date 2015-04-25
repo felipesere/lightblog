@@ -1,9 +1,7 @@
 <% content_for :body do %>
   <header class="hero">
     <nav>
-      <a href="/" class="logo">
-        <img src="/images/logos/blue_line_white_logo.svg" alt="Home">
-      </a>
+      <%= erb :logo, locals: {logo: :blue_line_white_logo} %>
     </nav>
 
     <h1>Code Paradoxon</h1>

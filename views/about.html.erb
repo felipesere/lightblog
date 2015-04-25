@@ -4,13 +4,13 @@
   <div class="container">
     <nav>
       <a href="/" class="logo">
-        <img src="/images/logos/white_logo.svg" alt="Home">
+        <%= image_tag("logos/white_logo.svg", alt: "Home") %>
       </a>
     </nav>
 
     <section class="about-page__bio">
       <h1>About Felipe</h1>
-      <img src="/images/Felipe.png" class="about-page__photo">
+      <%= image_tag("Felipe.png", class: ["about-page__photo"]) %>
 
 
       <p>My name is Felipe Seré and you have just landed on my site! On this site I publish pictures that were
@@ -25,31 +25,15 @@
     </section>
 
     <section class="about-page__social-media">
-      <h3>Connect with me!</h3>
-      <a href="http://github.com/felipesere">
-        <img src="/images/icons/github_grey.png"/>
-      </a>
-      <a href="http://twitter.com/felipesere">
-        <img src="/images/icons/twitter_grey.png"/>
-      </a>
-      <a href="http://fesere.de">
-        <img src="/images/icons/photo_icon_grey.png"/>
-      </a>
-      <a href="http://www.rssfeed.com">
-        <img src="/images/icons/rssfeed_grey.png"/>
-      </a>
+      <%= erb :connect_with_me, locals: {color: :grey} %>
     </section>
 
     <section class="photo-gallery">
-      <img src="/images/gallery/bridge.jpg" class="column large-4 medium-6"/>
-      <img src="/images/gallery/giraffes.jpg" class="column large-4 medium-6"/>
-      <img src="/images/gallery/madeira.jpg" class="column large-4 medium-6" />
-      <img src="/images/gallery/spring.jpg" class="column large-4 medium-6"/>
-      <img src="/images/gallery/stpancreas.jpg" class="column large-4 medium-6"/>
-      <img src="/images/gallery/waves.jpg" class="column large-4 medium-6"/>
-      <img src="/images/gallery/dahlia.jpg" class="column large-4 medium-6"/>
-      <img src="/images/gallery/stroll.jpg" class="column large-4 medium-6"/>
-      <img src="/images/gallery/broadway-market.jpg" class="column large-4 medium-6"/>
+      <%= image_tag(['gallery/bridge.jpg', 'gallery/giraffes.jpg',
+      'gallery/madeira.jpg', 'gallery/spring.jpg',
+      'gallery/stpancreas.jpg','gallery/waves.jpg',
+      'gallery/dahlia.jpg', 'gallery/stroll.jpg',
+      'gallery/broadway-market.jpg'], class:['column', 'large-4', 'medium-6']) %>
     </section>
   </div>
 </div>
