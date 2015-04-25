@@ -8,17 +8,16 @@ module LightBlog
       end
 
       def all
-        @fs.all.map do |raw|
-          if raw.nil?
-          else
-            LightBlog::Posts::Post.from_raw(raw)
-          end
-        end
+        @fs.all.compact.map do |raw|
+          LightBlog::Posts::Post.from_raw(raw)
+        end.sort_by { |post| post.date }
       end
 
       def find_by_slug(slug)
         all.find { |post| post.slug == slug }
       end
+
+      private
     end
   end
 end

@@ -19,7 +19,7 @@ module LightBlog
 
     get :post do
       post = @repository.find_by_slug(params[:slug])
-      erb :post, locals: { post: post, title: post.title, subtitle: post.subtitle}
+      erb :post, locals: { post: post, title: post.title}
     end
 
     get '/about' do

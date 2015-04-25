@@ -5,9 +5,8 @@ RSpec.describe LightBlog::Posts::Repository do
   let(:content) do
 "---
 title: this is the title
-subtitle: this is the subtitle
 author: felipe sere
-published: september 23, 2014
+date: 2014-9-23
 slug: some-slug
 ---
 
@@ -29,14 +28,35 @@ slug: some-slug
     expect(repo.all.count).to eq 1
     expect(repo.all.first).to be_a LightBlog::Posts::Post
   end
-  
+
   it "can find a post by slug" do
     expect(repo.find_by_slug("some-slug")).to be_a LightBlog::Posts::Post
   end
+
+  it "returns posts sorted by date" do
+    post1 = create_post("first", "2014-9-23")
+    post2 = create_post("second", "2015-10-11")
+    fs = FakeFilesytem.new
+    fs.add_file("first", post1)
+    fs.add_file("second", post2)
+
+    repo = described_class.new(fs)
+    expect(repo.all.map{|post| post.title}).to eq ["second", "first"]
+  end
+end
+
+def create_post(title, date)
+"---
+title: #{title}
+date: #{date}
+---
+
+# Hi there
+"
 end
 
 class FakeFilesytem
-  def initialize
+  def initialize(files = [])
     @files = {}
   end
 
