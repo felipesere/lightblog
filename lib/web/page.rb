@@ -1,23 +1,29 @@
 module LightBlog
   module Web
     class Page
-      def initialize(count, params)
+      def initialize(elements, params)
         @params = params
-        @count = count
+        @elements = elements
       end
 
       def next
-        return nil if has_no_next
-        Page.new(@count, @params.merge({"page" => page+1}))
+        if has_no_next
+          nil
+        else
+          Page.new(@elements, @params.merge({"page" => page+1}))
+        end
       end
 
       def previous
-        return nil if page == 0
-        Page.new(@count, @params.merge({"page" => page-1}))
+        if page == 0
+          nil
+        else
+          Page.new(@elements, @params.merge({"page" => page-1}))
+        end
       end
 
-      def filter(elements)
-        elements.drop(page*size).take(size)
+      def filter
+        @elements.drop(page*size).take(size)
       end
 
       def url
@@ -38,7 +44,7 @@ module LightBlog
         end
 
         def has_no_next
-          divider, rest = @count.divmod(size)
+          divider, rest = @elements.count.divmod(size)
           if rest == 0
             page == divider -1
           else

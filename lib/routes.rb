@@ -14,15 +14,14 @@ module LightBlog
     map :post, '/posts/:slug'
 
     get '/' do
-      all_posts = @repository.all
-      page = Web::Page.new(all_posts.count, params)
-      posts = page.filter(all_posts)
+      posts = @repository.all
+      page = Web::Page.new(posts, params)
 
-      erb :index, locals: { posts: posts, page: page }
+      erb :index, locals: { posts: page.filter, page: page }
     end
 
     get :post do
-      post = @repository.find_by_slug(slug)
+      post  = @repository.find_by_slug(slug)
       newer = @repository.newer(post)
       older = @repository.older(post)
       erb :post, locals: { post: post, newer: newer, older: older}

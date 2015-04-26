@@ -1,18 +1,19 @@
 require 'web/page'
 
 RSpec.describe LightBlog::Web::Page do
-  let(:page) { described_class.new(20, { "page" => 2, "size"=>5}) }
+  let(:elements) { ['a', 'b', 'c', 'd', 'e', 'f', 'g','h','i'] }
+  let(:page) { described_class.new(elements, { "page" => 2, "size"=>2}) }
 
   it "links to the next page" do
-    expect(page.next.url).to eq "/?page=3&size=5"
+    expect(page.next.url).to eq "/?page=3&size=2"
   end
 
   it "links to the previous page" do
-    expect(page.previous.url).to eq "/?page=1&size=5"
+    expect(page.previous.url).to eq "/?page=1&size=2"
   end
 
   it "it has a url" do
-    expect(page.url).to eq "/?page=2&size=5"
+    expect(page.url).to eq "/?page=2&size=2"
   end
 
   it "has no previous at the beginning" do
@@ -28,17 +29,15 @@ RSpec.describe LightBlog::Web::Page do
   end
 
   it "filters elements" do
-    elements = ['a', 'b', 'c', 'd', 'e']
-    page = described_class.new(elements.count, {"page" => 1, "size" => 2 })
-    expect(page.filter(elements)).to eq ['c', 'd']
+    expect(page.filter).to eq ['e', 'f']
   end
 
   def first_page
-    described_class.new(7, { "page" => 0, "size" => 3})
+    described_class.new(elements, { "page" => 0, "size" => 3})
   end
 
   def last_page
-    described_class.new(7, { "page" => 2, "size" => 3})
+    described_class.new(elements, { "page" => 2, "size" => 3})
   end
 end
 
