@@ -9,12 +9,7 @@ Here are the features I want:
 * "Staged" posts should only be reachable behind auth
 * Password protect individual posts
 * provide a proper 404 page
-* Deal with images
 
 * On the text:
   * Have a way to merge lines that form a paragraph. Its annoying in MD
   * Have a way to highlight qutoes
-
-
-[x] Individual header image if needed
-[x] Markdown and syntax hightlighting
