@@ -73,6 +73,15 @@ slug: some-slug
       first = repo.find_by_slug("first")
       expect(repo.older(first)).to be_nil
     end
+
+    it "does not return draft posts" do
+      fs = FakeFilesytem.new
+      fs.add_file("first", create_post("first", "2014-06-15"))
+      fs.add_file("unpublished", "---\ntitle: unpub\ndate: 2014-07-11\npublish: false\n---\n\nHi there\n\n")
+      repo = described_class.new(fs)
+
+      expect(repo.all.map {|p| p.title}).to eq ["first"]
+    end
   end
 end
 
@@ -87,7 +96,7 @@ date: #{date}
 end
 
 class FakeFilesytem
-  def initialize(files = [])
+  def initialize()
     @files = {}
   end
 

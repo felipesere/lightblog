@@ -35,10 +35,38 @@ I am not a fan of homoiconism
     it "has a date" do
       expect(post.date).to eq "March 23, 2015"
     end
+
+    it "defaults to published" do
+      expect(post.publish?).to eq true
+    end
+
+    it "can be a draft" do
+      raw = "
+---
+title: foo
+publish: false
+---
+"
+      post = described_class.from_raw(raw)
+      expect(post.publish?).to eq false
+    end
+
+    it "can be a published explicitly" do
+      raw = "
+---
+title: foo
+publish: true
+---
+"
+      post = described_class.from_raw(raw)
+      expect(post.publish?).to eq true
+    end
   end
 
   it "generates a slug from the title" do
     post = LightBlog::Posts::Post.from_raw("---\ntitle: some title\n---")
     expect(post.slug).to eq "some-title"
   end
+
+
 end

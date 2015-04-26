@@ -20,8 +20,13 @@ module LightBlog
         @author = params[:author]
         @date = format_date
         @raw_date = params[:date]
+        @publish = should_publish
         @slug = extract_slug
         @text = Text.new(body)
+      end
+
+      def publish?
+        @publish
       end
 
       def snippet(size=25)
@@ -38,6 +43,7 @@ module LightBlog
         def body
          @params[:raw].gsub(/---.+---/m,"").lstrip
         end
+
         def extract_slug
           @params[:slug] || generate_slug
         end
@@ -54,6 +60,10 @@ module LightBlog
 
         def has_date?
           @params[:date].present?
+        end
+
+        def should_publish
+          @params.fetch(:publish, true)
         end
     end
   end

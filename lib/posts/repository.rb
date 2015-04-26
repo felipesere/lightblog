@@ -10,7 +10,11 @@ module LightBlog
       def all
         @all ||= @fs.all.compact.map do |raw|
           LightBlog::Posts::Post.from_raw(raw)
-        end.sort_by { |post| post.raw_date }.reverse
+        end.find_all do |post|
+          post.publish?
+        end.sort_by do |post|
+          post.raw_date
+        end.reverse
       end
 
       def find_by_slug(slug)
