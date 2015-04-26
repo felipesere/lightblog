@@ -1,0 +1,65 @@
+@charset "utf-8";
+@import "variables";
+@import "grid";
+@import "about";
+@import "articles";
+@import "footer";
+@import "header";
+
+.content-container {
+  padding: 50px 10px;
+}
+
+body {
+  background: white;
+  color: rgb(75, 75, 75);
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+ }
+
+a {
+  text-decoration: none;
+
+  &, &:visited {
+    color: rgb(102, 152, 203);
+  }
+
+  &:hover {
+    color: darken(rgb(102, 151, 203), 5%);
+  }
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "jaf-bernino-sans",sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}  
+
+p {
+  font-family: "freight-text-pro";
+  font-size: 1em;
+  font-weight: 400;
+  letter-spacing: .01rem;
+  line-height: 1.5;
+}
+
+.clearfix {
+  @include clearfix;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.bottom-navigation {
+  padding-top: 50px;
+  padding-bottom: 30px;
+}

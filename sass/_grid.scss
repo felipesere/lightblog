@@ -1,0 +1,65 @@
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 800px; 
+  padding: 0 $gutter;
+}
+
+.row {
+  @include clearfix;
+  &:not(.collapse) {
+    margin-left: -$gutter;
+    margin-right: -$gutter;
+  }
+}
+
+.column {
+  float: left;
+  padding: 0 $gutter;
+  position: relative;
+  width: 100%;
+
+  &.end {
+    float: right;
+  }
+}
+
+
+@mixin column-widths($size) {
+  @for $n from 1 through $grid_columns {
+    &.#{$size}-#{$n} {
+      width: ($n/$grid_columns) * 100%;
+    }
+  }
+}
+
+// Small
+.column {
+  @include column-widths(small);
+}
+
+// Medium
+@media (min-width: $medium_width) {
+  .column {
+    @include column-widths(medium);
+  }
+}
+
+// Large
+@media (min-width: $large_width) {
+  .column {
+    @include column-widths(large);
+  }
+}

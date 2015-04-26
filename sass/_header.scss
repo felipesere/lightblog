@@ -1,0 +1,92 @@
+nav {
+  @include clearfix;
+  padding: 50px;
+  text-align: center;
+}
+
+header.hero {
+  text-align: center;
+
+  h1 {
+    font-size: 4em;
+    font-weight: 400;
+    line-height: .8;
+
+    @media (min-width: 680px) {
+      font-size: 5em; 
+    }
+
+    @media (min-width: 900px) {
+      font-size: 6em; 
+    }
+
+    @media (min-width: 1000px) {
+      font-size: 7em; 
+    }
+
+    @media (min-width: 1200px) {
+      font-size: 8em; 
+    }  
+  }
+
+  h2 {
+    font-size: 2em;
+    font-weight: 300;
+    margin-top: 0;
+
+    @media (min-width: 680px) {
+      font-size: 3em; 
+    }
+
+    @media (min-width: 900px) {
+      font-size: 4em; 
+    }
+
+    @media (min-width: 1000px) {
+      font-size: 5em; 
+    }
+
+    @media (min-width: 1200px) {
+      font-size: 6em; 
+    }  
+  }
+
+  @media (max-width: 600px) {
+    border-bottom: 1px solid #e8e8e8;
+    color: black;
+    text-align: center;
+
+    .logo {
+      margin: 0 auto;
+    } 
+  }
+
+  @media (min-width: 601px) {
+    background: url("/images/laptop.png");
+    background-size: cover;
+    color: white;
+    height: 900px;
+    width: 100%;
+
+    h1 {
+      padding-top: 100px;
+    }
+
+    nav {
+      padding-top: 200px;
+    }
+  }
+}
+
+.logo {
+  float: none;
+  transition: opacity 0.5s;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  @media (max-width: 601px) {
+    float: none;
+  }
+}

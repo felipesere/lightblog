@@ -1,0 +1,58 @@
+.about-page__photo {
+  border-radius: 50%;
+  border: 3px solid white;
+  display: block;
+  margin: 50px auto;
+  width: 200px;
+} 
+
+.about-page__bio {
+
+  h1 {
+    text-align: center;
+    font-size: 2em;
+    line-height: .8;
+    padding-top: 100px;
+    padding-bottom: 50px;   
+
+    @media (min-width: 680px) {
+      font-size: 2.5em; 
+    }
+
+    @media (min-width: 900px) {
+      font-size: 3em; 
+    }
+
+    @media (min-width: 1000px) {
+      font-size: 3.5em; 
+    }
+
+    @media (min-width: 1200px) {
+      font-size: 4em; 
+    }  
+  } 
+}
+
+.about-page__social-media {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.photo-gallery {
+  @include clearfix;
+  padding-top: 50px;
+
+  img {
+    display: inline-block;
+    float: left;
+    margin: 0 auto;
+    padding: 3px;
+    width: 100%;
+   
+    transition: opacity 0.5s;
+
+    &:hover {
+      opacity: 0.6;
+    } 
+  }
+}
