@@ -1,26 +1,27 @@
 module LightBlog
-  class Tags
-    def css(*names)
-      names.map do |name|
-        "<link rel=\"stylesheet\" href=\"/css/#{name}.css\">"
-      end.join("\n")
-    end
-
-    def js(*names)
-      names.map do |name|
-        "<script src=\"/js/#{name}.js\" type=\"text/javascript\"></script>"
-      end.join("\n")
-    end
-
-    def image(names, options = {})
-      if names.respond_to? :map
-        create_multiple_tags(names, options)
-      else
-        create_tag(names, options)
+  module Web
+    class Tags
+      def css(*names)
+        names.map do |name|
+          "<link rel=\"stylesheet\" href=\"/css/#{name}.css\">"
+        end.join("\n")
       end
-    end
 
-    private
+      def js(*names)
+        names.map do |name|
+          "<script src=\"/js/#{name}.js\" type=\"text/javascript\"></script>"
+        end.join("\n")
+      end
+
+      def image(names, options = {})
+        if names.respond_to? :map
+          create_multiple_tags(names, options)
+        else
+          create_tag(names, options)
+        end
+      end
+
+      private
       def create_tag(name, options)
         "<img src=\"/images/#{name}\"#{attributes(options)}/>"
       end
@@ -52,5 +53,6 @@ module LightBlog
           ""
         end
       end
+    end
   end
 end

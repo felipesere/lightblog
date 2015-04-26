@@ -1,7 +1,7 @@
 require 'spec_helper'
-require 'tags'
+require 'web/tags'
 
-RSpec.describe LightBlog::Tags do
+RSpec.describe LightBlog::Web::Tags do
 
   let(:tags) { described_class.new }
 

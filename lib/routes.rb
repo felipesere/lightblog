@@ -1,5 +1,6 @@
 require 'sinatra/named_routes'
-require 'tags'
+require 'web/tags'
+require 'web/page'
 
 module LightBlog
   class Routes < Sinatra::Application
@@ -13,12 +14,15 @@ module LightBlog
     map :post, '/posts/:slug'
 
     get '/' do
-      posts = @repository.all
-      erb :index, locals: { posts: posts }
+      all_posts = @repository.all
+      page = Web::Page.new(all_posts.count, params)
+      posts = page.filter(all_posts)
+
+      erb :index, locals: { posts: posts, page: page }
     end
 
     get :post do
-      post = @repository.find_by_slug(params[:slug])
+      post = @repository.find_by_slug(slug)
       newer = @repository.newer(post)
       older = @repository.older(post)
       erb :post, locals: { post: post, newer: newer, older: older}
@@ -48,7 +52,11 @@ module LightBlog
 
     private
       def tags
-        Tags.new
+        Web::Tags.new
+      end
+
+      def slug
+        params[:slug]
       end
   end
 end

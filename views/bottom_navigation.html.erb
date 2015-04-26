@@ -1,0 +1,8 @@
+<div class="bottom-navigation">
+  <% if page.next %>
+    <a href="<%= page.next.url %>" class="right">Older Posts →</a>
+  <% end %>
+  <% if page.previous %>
+    <a href="<%= page.previous.url %>" class="left">← Newer Posts</a>
+  <% end %>
+</div>
