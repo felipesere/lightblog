@@ -4,7 +4,7 @@ require 'web/page'
 
 module LightBlog
   class Routes < Sinatra::Application
-    POST_PER_PAGE = 2
+    POST_PER_PAGE = 5
     def initialize(app, repository)
       super(app)
       @repository = repository
@@ -23,13 +23,21 @@ module LightBlog
 
     get :post do
       post  = @repository.find_by_slug(slug)
-      newer = @repository.newer(post)
-      older = @repository.older(post)
-      erb :post, locals: { post: post, newer: newer, older: older}
+      if post
+        newer = @repository.newer(post)
+        older = @repository.older(post)
+        erb :post, locals: { post: post, newer: newer, older: older}
+      else
+        erb :not_found
+      end
     end
 
     get '/about' do
       erb :about
+    end
+
+    get '*' do
+      erb :not_found
     end
 
     helpers do
