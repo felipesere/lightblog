@@ -1,16 +1,17 @@
 module LightBlog
   module Web
     class Page
-      def initialize(elements, params)
-        @params = params
+      def initialize(elements, page, size)
         @elements = elements
+        @page = page
+        @size = size
       end
 
       def next
         if has_no_next
           nil
         else
-          Page.new(@elements, @params.merge({"page" => page+1}))
+          Page.new(@elements, page+1, size)
         end
       end
 
@@ -18,30 +19,24 @@ module LightBlog
         if page == 0
           nil
         else
-          Page.new(@elements, @params.merge({"page" => page-1}))
+          Page.new(@elements, page-1, size)
         end
       end
 
       def filter
-        @elements.drop(page*size).take(size)
+        @elements.drop(page * size).take(size)
       end
 
       def url
         if page == 0
           "/"
         else
-          "/?page=#{page}&size=#{size}"
+          "/?page=#{page}"
         end
       end
 
       private
-        def page
-          @params.fetch("page", 0).to_i
-        end
-
-        def size
-          @params.fetch("size", 2).to_i
-        end
+        attr_reader :page, :size
 
         def has_no_next
           divider, rest = @elements.count.divmod(size)

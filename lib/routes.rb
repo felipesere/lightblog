@@ -4,6 +4,7 @@ require 'web/page'
 
 module LightBlog
   class Routes < Sinatra::Application
+    POST_PER_PAGE = 2
     def initialize(app, repository)
       super(app)
       @repository = repository
@@ -15,9 +16,9 @@ module LightBlog
 
     get '/' do
       posts = @repository.all
-      page = Web::Page.new(posts, params)
+      current_page = Web::Page.new(posts, page, POST_PER_PAGE)
 
-      erb :index, locals: { posts: page.filter, page: page }
+      erb :index, locals: { posts: current_page.filter, page: current_page }
     end
 
     get :post do
@@ -56,6 +57,10 @@ module LightBlog
 
       def slug
         params[:slug]
+      end
+
+      def page
+        @params.fetch("page", 0).to_i
       end
   end
 end
