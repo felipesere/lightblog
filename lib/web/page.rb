@@ -8,27 +8,27 @@ module LightBlog
       end
 
       def next
-        if has_no_next
+        if on_last_page
           nil
         else
-          Page.new(@elements, page+1, size)
+          Page.new(elements, page+1, size)
         end
       end
 
       def previous
-        if page == 0
+        if on_first_page
           nil
         else
-          Page.new(@elements, page-1, size)
+          Page.new(elements, page-1, size)
         end
       end
 
       def filter
-        @elements.drop(page * size).take(size)
+        elements.drop(page * size).take(size)
       end
 
       def url
-        if page == 0
+        if on_first_page
           "/"
         else
           "/?page=#{page}"
@@ -36,10 +36,14 @@ module LightBlog
       end
 
       private
-        attr_reader :page, :size
+        attr_reader :page, :size, :elements
 
-        def has_no_next
-          divider, rest = @elements.count.divmod(size)
+        def on_first_page
+          page == 0
+        end
+
+        def on_last_page
+          divider, rest = elements.count.divmod(size)
           if rest == 0
             page == divider -1
           else
