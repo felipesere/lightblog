@@ -3,7 +3,7 @@ require 'rspec/core/rake_task'
 require 'sass'
 
 
-task :default => 'spec'
+task :default => [:spec]
 
 desc "Runs the specs"
 RSpec::Core::RakeTask.new(:spec) do |task|
