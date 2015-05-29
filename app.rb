@@ -1,5 +1,8 @@
 $:.unshift(File.join(File.expand_path(File.dirname(__FILE__)), 'lib'))
 
+Encoding.default_external = Encoding::UTF_8
+Encoding.default_internal = Encoding::UTF_8
+
 require 'sinatra'
 require 'sinatra/content_for'
 require 'routes'
