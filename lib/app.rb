@@ -1,29 +1,23 @@
-
 Encoding.default_external = Encoding::UTF_8
 Encoding.default_internal = Encoding::UTF_8
 
 require 'sinatra'
 require 'sinatra/content_for'
-require 'filesystem'
-require 'posts/repository'
 require 'sinatra/named_routes'
+
+require 'posts/repository'
+require 'filesystem'
 require 'web/tags'
 require 'web/page'
 
 module LightBlog
   class App < Sinatra::Application
-    Tilt.register Tilt::ERBTemplate, 'html.erb'
     POST_PER_PAGE = 5
 
     configure do
       disable :method_override
-      set :erb, :escape_html => true,
-                :static => true
-
       set :views, Proc.new { File.join(root, "../views") }
       set :public_folder, Proc.new { File.join(root, "../public") }
-
-      set :partial_template_engine, :erb
     end
 
 
