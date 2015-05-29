@@ -12,7 +12,6 @@ require 'web/page'
 
 module LightBlog
   class App < Sinatra::Application
-    POST_PER_PAGE = 5
 
     configure do
       disable :method_override
@@ -26,7 +25,7 @@ module LightBlog
 
     get '/' do
       posts = repository.all
-      current_page = Web::Page.new(posts, page, POST_PER_PAGE)
+      current_page = Web::Page.new(posts, page)
 
       erb :index, locals: { posts: current_page.filter, page: current_page }
     end

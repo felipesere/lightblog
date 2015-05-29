@@ -1,7 +1,8 @@
 module LightBlog
   module Web
     class Page
-      def initialize(elements, page, size)
+      ELEMENT_TO_SHOW = 5
+      def initialize(elements, page, size = ELEMENT_TO_SHOW)
         @elements = elements
         @page = page
         @size = size
