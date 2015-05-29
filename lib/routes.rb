@@ -42,7 +42,7 @@ module LightBlog
 
     helpers do
       def post_url(slug)
-        url :post, slug: slug
+        "/posts/#{slug}"
       end
 
       def css_tag(*names)
