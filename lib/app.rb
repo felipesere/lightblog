@@ -4,6 +4,7 @@ Encoding.default_internal = Encoding::UTF_8
 require 'sinatra'
 require 'sinatra/content_for'
 require 'sinatra/named_routes'
+require 'sinatra/config_file'
 
 require 'posts/repository'
 require 'filesystem'
@@ -12,6 +13,10 @@ require 'web/page'
 
 module LightBlog
   class App < Sinatra::Application
+    register Sinatra::NamedRoutes
+    register Sinatra::ConfigFile
+
+    config_file '../config/application.yml'
 
     configure do
       disable :method_override
@@ -19,8 +24,6 @@ module LightBlog
       set :public_folder, Proc.new { File.join(root, "../public") }
     end
 
-
-    register Sinatra::NamedRoutes
     map :post, '/posts/:slug'
 
     get '/' do
@@ -85,7 +88,7 @@ module LightBlog
       end
 
       def fs
-        LightBlog::Filesystem.new("./posts")
+        LightBlog::Filesystem.new(settings.posts)
       end
   end
 end

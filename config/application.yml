@@ -1,0 +1,5 @@
+development:
+  posts: posts
+production:
+  posts: /home/felipe/posts
+
