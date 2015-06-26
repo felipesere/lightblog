@@ -14,7 +14,7 @@ end
 desc "Run the server in background"
 task :server do
   conf = File.expand_path('config.ru', File.dirname(__FILE__))
-  exec("thin -p 9292 -R #{conf} -d --log log/access.log start")
+  exec("thin -p 9292 -R #{conf} -e #{ENV['RACK_ENV']} -d --log log/access.log start")
 end
 
 desc "Run the server in background"
